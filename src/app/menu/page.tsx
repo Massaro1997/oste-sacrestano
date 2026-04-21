@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 
 export default function MenuPage() {
   const mostra = [
-    { src: "/images/mostra-tmpzg8eq5a3.png", alt: "Gran Tableau dei piatti" },
     { src: "/images/mostra-nuova-2.png", alt: "Branzino con asparagi e carciofo" },
     { src: "/images/mostra-nuova-1.png", alt: "Vegetale al forno con crema" },
     { src: "/images/mostra-nuova-3.png", alt: "Vellutata con olio e erbe" },
@@ -201,6 +200,16 @@ export default function MenuPage() {
           </p>
         </div>
       </section>
+
+      {/* PARALLAX TRA MENU E GALLERIA */}
+      <section style={{
+        position: "relative",
+        height: "500px",
+        backgroundImage: "url(/images/mostra-tmpzg8eq5a3.png)",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover"
+      }} />
 
       {/* MOSTRA ARTISTICA */}
       <section style={{ padding: "60px 24px 120px", backgroundColor: "#fafafa" }}>
