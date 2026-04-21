@@ -10,10 +10,13 @@ export const metadata: Metadata = {
 
 export default function MenuPage() {
   const mostra = [
+    { src: "/images/mostra-new-1.png", alt: "Spaghetti verdi con bottarga" },
+    { src: "/images/mostra-new-2.png", alt: "Polpo glassato al vino" },
+    { src: "/images/mostra-new-3.png", alt: "Pesce con ragu di pomodoro" },
+    { src: "/images/mostra-new-4.png", alt: "Arancino su salsa verde" },
     { src: "/images/mostra-nuova-2.png", alt: "Branzino con asparagi e carciofo" },
     { src: "/images/mostra-nuova-1.png", alt: "Vegetale al forno con crema" },
     { src: "/images/mostra-nuova-3.png", alt: "Vellutata con olio e erbe" },
-    { src: "/images/mostra-tmppsmcc2_j.png", alt: "Mozzarelle in vasocottura" },
     { src: "/images/mostra-tmp43obdanf.png", alt: "Polpo e gambero" },
     { src: "/images/mostra-tmp863gusaj.png", alt: "Polpo e gambero su piatto" },
     { src: "/images/mostra-tmp8fpdym0l.png", alt: "Polpo con piselli" },
@@ -27,10 +30,8 @@ export default function MenuPage() {
     { src: "/images/mostra-tmpf_plour4.png", alt: "Pesce con patate" },
     { src: "/images/mostra-tmplcf48hh8.png", alt: "Baccala in brodo" },
     { src: "/images/mostra-tmpib6wys_9.png", alt: "Frittura in brodo" },
-    { src: "/images/mostra-tmp0pun3lg4.png", alt: "Cannolo siciliano" },
     { src: "/images/mostra-tmp6qgph5hp.png", alt: "Cannolo dall'alto" },
     { src: "/images/mostra-tmp8va8f0ml.png", alt: "Cannolo con cacao" },
-    { src: "/images/mostra-tmp74t279iu.png", alt: "Cannolo classico" },
     { src: "/images/mostra-tmpsym7fyu9.png", alt: "Cannolo con frutta" },
   ];
 
