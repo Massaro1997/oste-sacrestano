@@ -1,0 +1,108 @@
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Chef Peppe Bonsignore | L'Oste e il Sacrestano",
+  description: "Scopri la storia e la filosofia culinaria dello Chef Peppe Bonsignore, fondatore dell'osteria contemporanea L'Oste e il Sacrestano a Licata.",
+};
+
+export default function PeppePage() {
+  return (
+    <main className="min-h-screen bg-[#fafafa]">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
+        <Image
+          src="/images/chef-peppe.png"
+          alt="Chef Peppe Bonsignore"
+          fill
+          className="object-cover object-top"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white">
+          <div className="max-w-7xl mx-auto">
+            <span className="text-[#c9a55c] text-sm tracking-[0.3em] uppercase mb-4 block" style={{ fontFamily: "Montserrat, sans-serif" }}>Lo Chef</span>
+            <h1 className="text-5xl md:text-7xl font-light" style={{ fontFamily: "Cormorant Garamond, serif" }}>Peppe Bonsignore</h1>
+          </div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-24 md:py-32 px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-[#c9a55c] text-sm tracking-[0.3em] uppercase mb-4 block" style={{ fontFamily: "Montserrat, sans-serif" }}>La Storia</span>
+            <h2 className="text-4xl md:text-5xl font-light text-[#1a1a1a] mb-8" style={{ fontFamily: "Cormorant Garamond, serif" }}>Una Passione Nata in Sicilia</h2>
+            <div className="section-divider" />
+          </div>
+          <div className="space-y-8 text-gray-600 leading-relaxed" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            <p className="text-lg">Giuseppe Bonsignore, per tutti semplicemente Peppe, nasce a Licata con la passione per la cucina nel sangue. Cresciuto tra i profumi del mercato del pesce e gli orti della campagna siciliana, ha sviluppato fin da giovane un legame profondo con i prodotti del territorio.</p>
+            <p className="text-lg">Nel 2004, insieme alla moglie Chiara, realizza il sogno di aprire L&apos;Oste e il Sacrestano, un&apos;osteria contemporanea nel cuore del centro storico di Licata. Il nome stesso racconta la dualita della sua cucina: l&apos;oste, figura conviviale e generosa, e il sacrestano, custode di tradizioni e rituali.</p>
+            <p className="text-lg">La sua filosofia culinaria si basa su tre pilastri fondamentali: il rispetto assoluto per la materia prima, la stagionalita degli ingredienti, e la reinterpretazione contemporanea delle ricette della tradizione siciliana.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section className="py-24 md:py-32 px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-[#c9a55c] text-sm tracking-[0.3em] uppercase mb-4 block" style={{ fontFamily: "Montserrat, sans-serif" }}>La Filosofia</span>
+              <h2 className="text-4xl md:text-5xl font-light text-[#1a1a1a] mb-8" style={{ fontFamily: "Cormorant Garamond, serif" }}>Dal Mercato alla Tavola</h2>
+              <div className="w-16 h-[1px] bg-[#c9a55c] mb-8" />
+              <div className="space-y-6 text-gray-600" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                <p>Ogni mattina, Peppe si reca al mercato del pesce di Licata per selezionare personalmente il pescato migliore. Questa routine quotidiana non e solo un&apos;abitudine, ma un vero e proprio rituale che garantisce la freschezza e la qualita di ogni piatto.</p>
+                <p>La cucina di Peppe e una cucina di mercato, che cambia con le stagioni e segue il ritmo della natura. Non esiste un menu fisso, ma una proposta che si rinnova quotidianamente in base a cio che il territorio offre di meglio.</p>
+                <p>Il pesce e le verdure sono i protagonisti assoluti, trattati con rispetto e trasformati in piatti che esaltano la loro essenza senza mascherarla.</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative aspect-[3/4] image-hover">
+                <Image src="/images/007.jpg" alt="Piatto dello chef" fill className="object-cover" />
+              </div>
+              <div className="relative aspect-[3/4] image-hover mt-8">
+                <Image src="/images/008.jpg" alt="Piatto dello chef" fill className="object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recognition Section */}
+      <section className="py-24 md:py-32 px-6 lg:px-12 bg-[#1a1a1a] text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="text-[#c9a55c] text-sm tracking-[0.3em] uppercase mb-4 block" style={{ fontFamily: "Montserrat, sans-serif" }}>Riconoscimenti</span>
+          <h2 className="text-4xl md:text-5xl font-light mb-8" style={{ fontFamily: "Cormorant Garamond, serif" }}>Selezionato dalla Guida Michelin</h2>
+          <div className="w-16 h-[1px] bg-[#c9a55c] mx-auto mb-8" />
+          <p className="text-gray-400 text-lg leading-relaxed mb-8" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            La cucina di Peppe Bonsignore e stata riconosciuta dalla prestigiosa Guida Michelin, un traguardo che premia anni di dedizione, passione e ricerca della perfezione. Un riconoscimento che onora non solo lo chef, ma l&apos;intero territorio di Licata e la sua straordinaria tradizione gastronomica.
+          </p>
+          <div className="flex justify-center gap-8 mt-12">
+            <div className="text-center">
+              <div className="text-5xl font-light text-[#c9a55c] mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>2004</div>
+              <p className="text-gray-500 text-sm" style={{ fontFamily: "Montserrat, sans-serif" }}>Anno di apertura</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-light text-[#c9a55c] mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>20+</div>
+              <p className="text-gray-500 text-sm" style={{ fontFamily: "Montserrat, sans-serif" }}>Anni di esperienza</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 md:py-32 px-6 lg:px-12 bg-[#fafafa]">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-light text-[#1a1a1a] mb-8" style={{ fontFamily: "Cormorant Garamond, serif" }}>Assaggia la Cucina di Peppe</h2>
+          <p className="text-gray-600 text-lg leading-relaxed mb-10" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            Vieni a scoprire i sapori autentici della Sicilia attraverso i piatti dello Chef Peppe. Prenota il tuo tavolo e lasciati sorprendere.
+          </p>
+          <Link href="/prenota" className="btn-primary" style={{ fontFamily: "Montserrat, sans-serif" }}>Prenota un Tavolo</Link>
+        </div>
+      </section>
+    </main>
+  );
+}
