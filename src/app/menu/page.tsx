@@ -37,7 +37,8 @@ export default function MenuPage() {
   return (
     <main>
       {/* HERO */}
-      <section style={{ position: "relative", height: "80vh", width: "100%" }}>
+      <div style={{ position: "relative" }}>
+      <section style={{ position: "sticky", top: 0, height: "80vh", width: "100%", zIndex: 0 }}>
         <Image
           src="/images/hero.png"
           alt="I piatti dello chef"
@@ -82,7 +83,7 @@ export default function MenuPage() {
       </section>
 
       {/* MENU */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
+      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif",
@@ -200,6 +201,7 @@ export default function MenuPage() {
           </p>
         </div>
       </section>
+      </div>
 
       {/* PARALLAX TRA MENU E GALLERIA */}
       <section style={{

@@ -23,90 +23,43 @@ export default function MostraGallery({ items }: { items: Dish[] }) {
     };
   }, [lightbox, items.length]);
 
-  const first = items[0];
-  const last = items[items.length - 1];
-  const middle = items.slice(1, -1);
-
-  const tableauStyle: React.CSSProperties = {
-    width: "100%",
-    cursor: "zoom-in",
-    backgroundColor: "white",
-    padding: "16px",
-    boxShadow: "0 12px 40px rgba(0,0,0,0.12)",
-    marginBottom: "48px",
-    transition: "transform 0.3s",
-  };
-
   return (
     <>
-      {/* TABLEAU APERTURA */}
-      {first && (
-        <div
-          onClick={() => setLightbox(0)}
-          style={tableauStyle}
-          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.01)")}
-          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-        >
-          <Image
-            src={first.src}
-            alt={first.alt}
-            width={1600}
-            height={1000}
-            style={{ width: "100%", height: "auto", display: "block" }}
-            sizes="100vw"
-            priority
-          />
-        </div>
-      )}
-
-      {/* MASONRY MEZZO */}
-      <div style={{ columnCount: 3, columnGap: "24px" }} className="mostra-masonry">
-        {middle.map((dish, i) => (
+      {/* GRID UNIFORME */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gap: "16px",
+        }}
+      >
+        {items.map((dish, i) => (
           <div
             key={i}
-            onClick={() => setLightbox(i + 1)}
+            onClick={() => setLightbox(i)}
             style={{
-              breakInside: "avoid",
-              marginBottom: "24px",
+              position: "relative",
+              aspectRatio: "1 / 1",
               backgroundColor: "white",
-              padding: "12px",
-              boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+              padding: "8px",
+              boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
               cursor: "zoom-in",
               transition: "transform 0.3s",
+              overflow: "hidden",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             <Image
               src={dish.src}
               alt={dish.alt}
-              width={600}
-              height={600}
-              style={{ width: "100%", height: "auto", display: "block" }}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+              fill
+              style={{ objectFit: "cover", padding: "8px" }}
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 220px"
             />
           </div>
         ))}
       </div>
-
-      {/* TABLEAU CHIUSURA */}
-      {last && last !== first && (
-        <div
-          onClick={() => setLightbox(items.length - 1)}
-          style={{ ...tableauStyle, marginTop: "48px", marginBottom: 0 }}
-          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.01)")}
-          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-        >
-          <Image
-            src={last.src}
-            alt={last.alt}
-            width={1600}
-            height={1000}
-            style={{ width: "100%", height: "auto", display: "block" }}
-            sizes="100vw"
-          />
-        </div>
-      )}
 
       {/* LIGHTBOX */}
       {lightbox !== null && (
