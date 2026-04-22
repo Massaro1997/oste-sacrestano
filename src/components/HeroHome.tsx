@@ -7,8 +7,6 @@ const slides = [
   { desktop: "/images/hero.jpg", mobile: "/images/hero-mobile.jpg" },
   { desktop: "/images/galleria-3.jpg", mobile: "/images/galleria-3.jpg" },
   { desktop: "/images/galleria-4.jpg", mobile: "/images/galleria-4.jpg" },
-  { desktop: "/images/galleria-6-new.jpg", mobile: "/images/galleria-6-new.jpg" },
-  { desktop: "/images/home-galleria-peppe-chiara.jpg", mobile: "/images/home-galleria-peppe-chiara.jpg" },
   { desktop: "/images/mostra-tmp863gusaj.jpg", mobile: "/images/mostra-tmp863gusaj.jpg" },
   { desktop: "/images/mostra-tmposllomzy.jpg", mobile: "/images/mostra-tmposllomzy.jpg" },
 ];
