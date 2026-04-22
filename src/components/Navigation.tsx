@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,6 +14,7 @@ const navLinks = [
 ];
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,19 +32,29 @@ export default function Navigation() {
     };
   }, [isOpen]);
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  };
+
   const navBg = isScrolled || isOpen
-    ? "bg-black/95 backdrop-blur-md shadow-sm"
-    : "bg-transparent";
+    ? "bg-black/95 backdrop-blur-md shadow-lg"
+    : "bg-gradient-to-b from-black/50 via-black/20 to-transparent";
 
   return (
     <>
-      <nav
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}
-        style={{ height: "72px" }}
+        style={{ height: "80px" }}
       >
-        <div className="h-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 flex items-center justify-between">
+        <div className="h-full w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-6">
           {/* LOGO */}
-          <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center flex-shrink-0"
+            aria-label="L'Oste e il Sacrestano — Home"
+          >
             <Image
               src="/images/LOGO ULTIMO NUOVO.png"
               alt="L'Oste e il Sacrestano"
@@ -54,27 +66,39 @@ export default function Navigation() {
             />
           </Link>
 
-          {/* DESKTOP LINKS */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="nav-link text-sm tracking-wider uppercase text-white transition-colors hover:text-[#c9a55c]"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          {/* DESKTOP NAV LINKS — right aligned */}
+          <nav
+            className="hidden md:flex items-center gap-10 lg:gap-14"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+          >
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative text-[13px] lg:text-sm tracking-[0.22em] uppercase transition-colors duration-300 ${
+                    active ? "text-[#c9a55c]" : "text-white hover:text-[#c9a55c]"
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute left-1/2 -translate-x-1/2 -bottom-1.5 h-px bg-[#c9a55c] transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
 
-          {/* HAMBURGER */}
+          {/* HAMBURGER (mobile) */}
           <button
             type="button"
             onClick={() => setIsOpen((v) => !v)}
             aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
-            aria-expanded={isOpen}
-            className="md:hidden flex items-center justify-center w-11 h-11 text-white"
+            {...(isOpen ? { "aria-expanded": true } : { "aria-expanded": false })}
+            className="md:hidden flex items-center justify-center w-11 h-11 text-white flex-shrink-0"
           >
             <span className="relative block w-6 h-[18px]">
               <span
@@ -95,27 +119,32 @@ export default function Navigation() {
             </span>
           </button>
         </div>
-      </nav>
+      </header>
 
       {/* MOBILE OVERLAY */}
       <div
         className={`md:hidden fixed inset-0 z-40 bg-[#0a0a0a] transition-opacity duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
-        style={{ paddingTop: "72px" }}
+        style={{ paddingTop: "80px" }}
       >
-        <nav className="h-full flex flex-col items-center justify-center gap-8 px-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-3xl text-white hover:text-[#c9a55c] transition-colors"
-              style={{ fontFamily: "Cormorant Garamond, serif" }}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="h-full flex flex-col items-center justify-center gap-7 px-8">
+          {navLinks.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-3xl transition-colors ${
+                  active ? "text-[#c9a55c]" : "text-white hover:text-[#c9a55c]"
+                }`}
+                style={{ fontFamily: "Cormorant Garamond, serif" }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </>
