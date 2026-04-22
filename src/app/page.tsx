@@ -1,64 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeroHome from "@/components/HeroHome";
 
 export default function Home() {
   return (
     <main>
       <div style={{ position: "relative" }}>
-      {/* HERO - Sticky sotto */}
-      <section className="mobile-hero-100" style={{ position: "sticky", top: 0, height: "100vh", width: "100%", zIndex: 0 }}>
-        <picture>
-          <source media="(max-width: 768px)" srcSet="/images/hero-mobile.jpg" />
-          <img
-            src="/images/hero.jpg"
-            alt="Piatti gourmet"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-            fetchPriority="high"
-          />
-        </picture>
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(0,0,0,0.4)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          color: "white",
-          padding: "0 24px"
-        }}>
-          <p style={{
-            fontFamily: "Montserrat, sans-serif",
-            fontSize: "14px",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            marginBottom: "16px"
-          }}>
-            Osteria Contemporanea
-          </p>
-          <h1 style={{
-            fontFamily: "Cormorant Garamond, serif",
-            fontSize: "clamp(40px, 8vw, 90px)",
-            fontWeight: 300,
-            marginBottom: "24px"
-          }}>
-            L&apos;Oste e il Sacrestano
-          </h1>
-          <p style={{
-            fontFamily: "Montserrat, sans-serif",
-            fontSize: "18px",
-            fontWeight: 300,
-            maxWidth: "600px",
-            marginBottom: "40px"
-          }}>
-            Cucina siciliana contemporanea nel cuore di Licata
-          </p>
-          <Link href="/prenota" className="btn-primary" style={{ fontFamily: "Montserrat, sans-serif" }}>
-            Prenota un Tavolo
-          </Link>
-        </div>
-      </section>
+      <HeroHome />
 
       {/* BENVENUTI - scorre sopra hero */}
       <section className="mobile-section" style={{

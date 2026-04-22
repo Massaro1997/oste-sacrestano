@@ -17,13 +17,27 @@ export default function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [heroLogoHidden, setHeroLogoHidden] = useState(false);
+
+  const isHome = pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setIsScrolled(y > 50);
+      // On home: hide nav logo until hero logo has morphed into the navbar area.
+      if (isHome) {
+        const vh = window.innerHeight || 900;
+        const threshold = vh * 0.55;
+        setHeroLogoHidden(y < threshold);
+      } else {
+        setHeroLogoHidden(false);
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -60,7 +74,9 @@ export default function Navigation() {
               alt="L'Oste e il Sacrestano"
               width={2146}
               height={733}
-              className="h-14 md:h-20 lg:h-24 w-auto"
+              className={`h-14 md:h-20 lg:h-24 w-auto transition-opacity duration-300 ${
+                heroLogoHidden ? "opacity-0" : "opacity-100"
+              }`}
               priority
               quality={100}
               unoptimized
