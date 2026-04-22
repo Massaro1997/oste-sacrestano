@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#0a0a0a"/>
-  <g fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="300" text-anchor="middle" dominant-baseline="central">
-    <text x="180" y="266" transform="translate(360 0) scale(-1 1)">P</text>
-    <text x="332" y="266">B</text>
+  <rect width="512" height="512" rx="96" fill="#ffffff"/>
+  <g fill="#0a0a0a" font-family="'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif" font-weight="500" font-size="340" text-anchor="middle" dominant-baseline="central" font-style="italic">
+    <text x="186" y="262" transform="translate(372 0) scale(-1 1)">P</text>
+    <text x="326" y="262">B</text>
   </g>
 </svg>
