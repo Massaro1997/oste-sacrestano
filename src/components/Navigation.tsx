@@ -4,77 +4,63 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/peppe", label: "Peppe" },
+  { href: "/menu", label: "Menu" },
+  { href: "/licata", label: "Licata" },
+  { href: "/prenota", label: "Prenota" },
+];
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isMobileMenuOpen]);
+  }, [isOpen]);
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/peppe", label: "Peppe" },
-    { href: "/menu", label: "Menu" },
-    { href: "/licata", label: "Licata" },
-    { href: "/prenota", label: "Prenota" },
-  ];
-
-  const navClass = isScrolled
-    ? "fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-black/95 backdrop-blur-md shadow-sm py-4"
-    : "fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent py-6";
-
-  const logoClass = isScrolled
-    ? "transition-all duration-300 h-10 sm:h-12 md:h-14 w-auto"
-    : "transition-all duration-300 h-12 sm:h-14 md:h-16 w-auto";
-
-  const linkBaseClass = "nav-link text-sm tracking-wider uppercase transition-colors hover:text-[#c9a55c]";
-  const linkColorClass = "text-white";
-
-  const buttonClass = "md:hidden relative z-[70] p-3 text-white cursor-pointer";
-
-  const spanBaseClass = "w-full h-0.5 bg-current transform transition-all duration-300";
-
-  const mobileMenuClass = isMobileMenuOpen
-    ? "md:hidden fixed inset-0 bg-[#0a0a0a] z-[60] transition-opacity duration-300 opacity-100 visible"
-    : "md:hidden fixed inset-0 bg-[#0a0a0a] z-[60] transition-opacity duration-300 opacity-0 invisible pointer-events-none";
+  const navBg = isScrolled || isOpen
+    ? "bg-black/95 backdrop-blur-md shadow-sm"
+    : "bg-transparent";
 
   return (
-    <nav className={navClass}>
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex items-center justify-between gap-3">
-          <Link href="/" className="relative z-[70] flex-shrink min-w-0">
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}
+        style={{ height: "72px" }}
+      >
+        <div className="h-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14 flex items-center justify-between">
+          {/* LOGO */}
+          <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
             <Image
               src="/images/LOGO ULTIMO NUOVO.png"
-              alt="L Oste e il Sacrestano"
+              alt="L'Oste e il Sacrestano"
               width={180}
               height={60}
-              className={logoClass}
+              className="h-12 md:h-14 w-auto"
               priority
-             quality={100} />
+              quality={100}
+            />
           </Link>
 
-          <div className="hidden md:flex items-center gap-10">
+          {/* DESKTOP LINKS */}
+          <div className="hidden md:flex items-center gap-8 lg:gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={linkBaseClass + " " + linkColorClass}
+                className="nav-link text-sm tracking-wider uppercase text-white transition-colors hover:text-[#c9a55c]"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 {link.label}
@@ -82,37 +68,56 @@ export default function Navigation() {
             ))}
           </div>
 
+          {/* HAMBURGER */}
           <button
             type="button"
-            onClick={() => setIsMobileMenuOpen((v) => !v)}
-            className={buttonClass + " flex-shrink-0"}
-            aria-label="Menu"
-            aria-expanded={isMobileMenuOpen ? "true" : "false"}
+            onClick={() => setIsOpen((v) => !v)}
+            aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={isOpen}
+            className="md:hidden flex items-center justify-center w-11 h-11 text-white"
           >
-            <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span className={spanBaseClass + (isMobileMenuOpen ? " rotate-45 translate-y-2" : "")} />
-              <span className={spanBaseClass + (isMobileMenuOpen ? " opacity-0" : "")} />
-              <span className={spanBaseClass + (isMobileMenuOpen ? " -rotate-45 -translate-y-2" : "")} />
-            </div>
+            <span className="relative block w-6 h-[18px]">
+              <span
+                className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ${
+                  isOpen ? "top-[8px] rotate-45" : "top-0"
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[8px] w-full h-0.5 bg-current transition-opacity duration-200 ${
+                  isOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ${
+                  isOpen ? "top-[8px] -rotate-45" : "top-[16px]"
+                }`}
+              />
+            </span>
           </button>
         </div>
-      </div>
+      </nav>
 
-      <div className={mobileMenuClass}>
-        <div className="flex flex-col items-center justify-center h-full gap-8">
+      {/* MOBILE OVERLAY */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 bg-[#0a0a0a] transition-opacity duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        }`}
+        style={{ paddingTop: "72px" }}
+      >
+        <nav className="h-full flex flex-col items-center justify-center gap-8 px-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => setIsOpen(false)}
               className="text-3xl text-white hover:text-[#c9a55c] transition-colors"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               {link.label}
             </Link>
           ))}
-        </div>
+        </nav>
       </div>
-    </nav>
+    </>
   );
 }
