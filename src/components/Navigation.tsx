@@ -59,7 +59,7 @@ export default function Navigation() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}
-        style={{ height: "104px" }}
+        style={{ height: "80px" }}
       >
         <div className="relative h-full w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-6">
           {/* LOGO */}
@@ -74,7 +74,7 @@ export default function Navigation() {
               alt="L'Oste e il Sacrestano"
               width={2146}
               height={733}
-              className={`h-14 md:h-20 lg:h-24 w-auto transition-opacity duration-300 ${
+              className={`h-12 md:h-14 lg:h-16 w-auto transition-opacity duration-300 ${
                 heroLogoHidden ? "opacity-0" : "opacity-100"
               }`}
               priority
@@ -108,6 +108,19 @@ export default function Navigation() {
               );
             })}
           </nav>
+
+          {/* PHONE CTA (desktop) */}
+          <a
+            href="tel:+390922774736"
+            className="hidden md:inline-flex items-center gap-2 px-4 lg:px-5 py-2 border border-[#c9a55c] text-[#c9a55c] text-[12px] lg:text-[13px] tracking-[0.18em] uppercase transition-colors duration-300 hover:bg-[#c9a55c] hover:text-black flex-shrink-0"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
+            aria-label="Chiama 0922 774736"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span>0922 774736</span>
+          </a>
 
           {/* HAMBURGER (mobile) */}
           <button
@@ -143,7 +156,7 @@ export default function Navigation() {
         className={`md:hidden fixed inset-0 z-40 bg-[#0a0a0a] transition-opacity duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
-        style={{ paddingTop: "104px" }}
+        style={{ paddingTop: "80px" }}
       >
         <nav className="h-full flex flex-col items-center justify-center gap-7 px-8">
           {navLinks.map((link) => {
