@@ -61,8 +61,8 @@ export default function HeroHome() {
   // Breakpoint-aware logo sizes (must match the Tailwind classes below
   // and Navigation.tsx).
   const heroLogoPx = vw >= 1024 ? 224 : vw >= 768 ? 160 : 176; // h-56 / h-40 / h-44 mobile
-  const navLogoPx = vw >= 1024 ? 64 : vw >= 768 ? 56 : 48;    // h-16 / h-14 / h-12
-  const navCenterY = 40; // nav is 80px tall, center at 40px from top
+  const navLogoPx = vw >= 1024 ? 64 : vw >= 768 ? 56 : 56;    // h-16 / h-14 / h-14
+  const navCenterY = vw >= 768 ? 40 : 32; // nav is 80px (md+) / 64px (mobile)
   const scrollRange = vh * 0.6;
   const progress = Math.min(1, Math.max(0, scrollY / scrollRange));
 

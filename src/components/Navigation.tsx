@@ -58,10 +58,9 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}
-        style={{ height: "80px" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 h-16 md:h-20 ${navBg}`}
       >
-        <div className="relative h-full w-full mx-auto px-6 md:px-[5px] flex items-center justify-between gap-6">
+        <div className="relative h-full w-full mx-auto pl-[10px] pr-6 md:px-[5px] flex items-center justify-between gap-6">
           {/* LOGO */}
           <Link
             href="/"
@@ -74,7 +73,7 @@ export default function Navigation() {
               alt="L'Oste e il Sacrestano"
               width={2146}
               height={733}
-              className={`h-12 md:h-14 lg:h-16 w-auto transition-opacity duration-300 ${
+              className={`h-14 md:h-14 lg:h-16 w-auto transition-opacity duration-300 ${
                 heroLogoHidden ? "opacity-0" : "opacity-100"
               }`}
               priority
@@ -155,10 +154,9 @@ export default function Navigation() {
 
       {/* MOBILE OVERLAY */}
       <div
-        className={`md:hidden fixed inset-0 z-40 bg-[#0a0a0a] transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 z-40 bg-[#0a0a0a] transition-opacity duration-300 pt-16 md:pt-20 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
-        style={{ paddingTop: "80px" }}
       >
         <nav className="h-full flex flex-col items-center justify-center gap-7 px-8">
           {navLinks.map((link) => {
