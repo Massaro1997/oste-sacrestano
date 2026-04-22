@@ -61,7 +61,7 @@ export default function Navigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}
         style={{ height: "80px" }}
       >
-        <div className="relative h-full w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-6">
+        <div className="relative h-full w-full mx-auto px-6 md:px-[5px] flex items-center justify-between gap-6">
           {/* LOGO */}
           <Link
             href="/"
@@ -112,7 +112,7 @@ export default function Navigation() {
           {/* PHONE CTA (desktop) — visible only when nav is dark (scrolled) */}
           <a
             href="tel:+390922774736"
-            className={`hidden md:inline-flex items-center gap-2 text-[#c9a55c] text-[13px] tracking-[0.18em] uppercase transition-opacity duration-300 hover:text-white flex-shrink-0 mr-4 lg:mr-8 ${
+            className={`hidden md:inline-flex items-center gap-2 text-[#c9a55c] text-[13px] tracking-[0.18em] uppercase transition-opacity duration-300 hover:text-white flex-shrink-0 ${
               isScrolled ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
             }`}
             style={{ fontFamily: "Montserrat, sans-serif" }}
