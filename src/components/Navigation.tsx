@@ -46,15 +46,13 @@ export default function Navigation() {
   const linkBaseClass = "nav-link text-sm tracking-wider uppercase transition-colors hover:text-[#c9a55c]";
   const linkColorClass = "text-white";
 
-  const buttonClass = isMobileMenuOpen
-    ? "md:hidden relative z-[70] p-2 text-gray-800"
-    : "md:hidden relative z-[70] p-2 text-white";
+  const buttonClass = "md:hidden relative z-[70] p-2 text-white";
 
   const spanBaseClass = "w-full h-0.5 bg-current transform transition-all duration-300";
 
   const mobileMenuClass = isMobileMenuOpen
-    ? "md:hidden fixed inset-0 bg-white z-[60] transition-opacity duration-300 opacity-100 visible"
-    : "md:hidden fixed inset-0 bg-white z-[60] transition-opacity duration-300 opacity-0 invisible pointer-events-none";
+    ? "md:hidden fixed inset-0 bg-[#0a0a0a] z-[60] transition-opacity duration-300 opacity-100 visible"
+    : "md:hidden fixed inset-0 bg-[#0a0a0a] z-[60] transition-opacity duration-300 opacity-0 invisible pointer-events-none";
 
   return (
     <nav className={navClass}>
@@ -105,7 +103,7 @@ export default function Navigation() {
               key={link.href}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-3xl text-gray-800 hover:text-[#c9a55c] transition-colors"
+              className="text-3xl text-white hover:text-[#c9a55c] transition-colors"
               style={{ fontFamily: "Cormorant Garamond, serif" }}
             >
               {link.label}
