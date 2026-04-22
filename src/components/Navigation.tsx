@@ -58,11 +58,12 @@ export default function Navigation() {
             <Image
               src="/images/LOGO ULTIMO NUOVO.png"
               alt="L'Oste e il Sacrestano"
-              width={180}
-              height={60}
+              width={2146}
+              height={733}
               className="h-14 md:h-20 lg:h-24 w-auto"
               priority
               quality={100}
+              unoptimized
             />
           </Link>
 

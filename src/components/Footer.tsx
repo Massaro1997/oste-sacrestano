@@ -14,10 +14,12 @@ export default function Footer() {
             <Image
               src="/images/LOGO ULTIMO NUOVO.png"
               alt="L'Oste e il Sacrestano"
-              width={200}
-              height={70}
-              style={{ marginBottom: "24px" }}
-             quality={95} />
+              width={2146}
+              height={733}
+              style={{ marginBottom: "24px", width: "200px", height: "auto" }}
+              quality={100}
+              unoptimized
+            />
             <p style={{
               fontFamily: "Montserrat, sans-serif",
               fontSize: "14px",
