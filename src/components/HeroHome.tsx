@@ -56,8 +56,10 @@ export default function HeroHome() {
               src={s.desktop}
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1600ms] ease-in-out"
+              className="absolute inset-0 w-full h-full transition-opacity duration-[1600ms] ease-in-out"
               style={{
+                objectFit: "cover",
+                objectPosition: "center",
                 opacity: active === i ? 1 : 0,
                 transform: active === i ? "scale(1.05)" : "scale(1)",
                 transition: "opacity 1.6s ease-in-out, transform 8s ease-out",
