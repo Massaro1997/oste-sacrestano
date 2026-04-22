@@ -417,15 +417,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PARALLAX PRE-FOOTER */}
-      <section className="mobile-parallax" style={{
-        position: "relative",
-        height: "500px",
-        backgroundImage: "url(/images/parallax-footer.jpg)",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundSize: "cover"
-      }} />
     </main>
   );
 }
