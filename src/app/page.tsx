@@ -347,16 +347,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PARALLAX PRE-PRENOTAZIONI */}
-      <section className="mobile-parallax" style={{
-        position: "relative",
-        height: "500px",
-        backgroundImage: "url(/images/parallax-quote.jpg)",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundSize: "cover"
-      }} />
-
       {/* CTA PRENOTAZIONE */}
       <section className="mobile-section-dark" style={{
         padding: "120px 24px",
