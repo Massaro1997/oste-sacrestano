@@ -62,7 +62,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between gap-3">
           <Link href="/" className="relative z-[70] flex-shrink min-w-0">
             <Image
-              src="/images/LOGO NUOVO BIANCO.png"
+              src="/images/LOGO ULTIMO NUOVO.png"
               alt="L Oste e il Sacrestano"
               width={180}
               height={60}

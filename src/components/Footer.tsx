@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Logo e descrizione */}
           <div>
             <Image
-              src="/images/LOGO NUOVO BIANCO.png"
+              src="/images/LOGO ULTIMO NUOVO.png"
               alt="L'Oste e il Sacrestano"
               width={200}
               height={70}
