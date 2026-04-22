@@ -200,7 +200,7 @@ export default function Home() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/parallax-prenotazioni.jpg)",
+        backgroundImage: "url(/images/parallax-prenota.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"
@@ -267,7 +267,7 @@ export default function Home() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/parallax-prenota.jpg)",
+        backgroundImage: "url(/images/parallax-prenotazioni.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"
