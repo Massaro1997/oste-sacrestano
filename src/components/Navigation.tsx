@@ -45,7 +45,7 @@ export default function Navigation() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}
-        style={{ height: "80px" }}
+        style={{ height: "104px" }}
       >
         <div className="h-full w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-6">
           {/* LOGO */}
@@ -60,7 +60,7 @@ export default function Navigation() {
               alt="L'Oste e il Sacrestano"
               width={180}
               height={60}
-              className="h-12 md:h-14 w-auto"
+              className="h-14 md:h-20 lg:h-24 w-auto"
               priority
               quality={100}
             />
@@ -68,7 +68,7 @@ export default function Navigation() {
 
           {/* DESKTOP NAV LINKS — right aligned */}
           <nav
-            className="hidden md:flex items-center gap-10 lg:gap-14"
+            className="hidden md:flex items-center gap-6 lg:gap-8"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
             {navLinks.map((link) => {
@@ -126,7 +126,7 @@ export default function Navigation() {
         className={`md:hidden fixed inset-0 z-40 bg-[#0a0a0a] transition-opacity duration-300 ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
-        style={{ paddingTop: "80px" }}
+        style={{ paddingTop: "104px" }}
       >
         <nav className="h-full flex flex-col items-center justify-center gap-7 px-8">
           {navLinks.map((link) => {
