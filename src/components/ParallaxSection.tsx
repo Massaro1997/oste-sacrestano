@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 type Props = {
   src: string;
   height?: number;
-  /** 0 = no parallax, 0.5 = image scrolls at half rate. Default 0.35. */
+  /** 0 = no parallax, 0.5 = strong. Default 0.25. */
   speed?: number;
   alt?: string;
 };
 
-export default function ParallaxSection({ src, height = 500, speed = 0.35, alt = "" }: Props) {
+export default function ParallaxSection({ src, height = 500, speed = 0.25, alt = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
 
@@ -20,11 +20,16 @@ export default function ParallaxSection({ src, height = 500, speed = 0.35, alt =
       if (!ref.current) return;
       const rect = ref.current.getBoundingClientRect();
       const vh = window.innerHeight;
-      // Section center distance from viewport center, in px.
-      const centerDelta = rect.top + rect.height / 2 - vh / 2;
-      // Image translates opposite to the delta, scaled by speed.
-      setOffset(-centerDelta * speed);
+      // Only update while the section is within viewport + small margin.
+      if (rect.bottom < -200 || rect.top > vh + 200) return;
+      // Distance from section top to viewport top, used to drive parallax.
+      // When section top aligns with viewport top -> offset = 0.
+      // As section scrolls up (top becomes negative), image translates down
+      // slower than the section so the background "lags" behind.
+      const delta = rect.top;
+      setOffset(-delta * speed);
     };
+
     const onScroll = () => {
       if (raf) return;
       raf = requestAnimationFrame(() => {
@@ -32,6 +37,7 @@ export default function ParallaxSection({ src, height = 500, speed = 0.35, alt =
         update();
       });
     };
+
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", update);
@@ -42,29 +48,38 @@ export default function ParallaxSection({ src, height = 500, speed = 0.35, alt =
     };
   }, [speed]);
 
-  // Image height must be taller than section by ~ 2 * max offset so it never
-  // reveals an empty edge. Scale factor here is generous to be safe.
-  const imgScale = 1 + Math.abs(speed) * 1.5;
+  // Buffer height so img never exposes empty edges regardless of scroll position.
+  // Max offset during viewport traversal ≈ (vh + height) * speed. Use a
+  // generous extra 40% of the section height as a safety pad.
+  const bufferPx = Math.ceil((typeof window !== "undefined" ? window.innerHeight : 1000) * speed + height * 0.4);
 
   return (
     <div
       ref={ref}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden bg-black"
       style={{ height: `${height}px` }}
-      aria-hidden={alt === "" ? true : undefined}
+      {...(alt === "" ? { "aria-hidden": true } : {})}
     >
-      <img
-        src={src}
-        alt={alt}
-        className="absolute left-1/2 top-1/2 w-full h-full -translate-x-1/2 will-change-transform"
+      <div
+        className="absolute left-0 right-0 will-change-transform"
         style={{
-          objectFit: "cover",
-          objectPosition: "center",
-          transform: `translate3d(-50%, calc(-50% + ${offset}px), 0) scale(${imgScale})`,
-          transformOrigin: "center",
+          top: `-${bufferPx}px`,
+          bottom: `-${bufferPx}px`,
+          transform: `translate3d(0, ${offset}px, 0)`,
         }}
-        loading="lazy"
-      />
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full"
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            display: "block",
+          }}
+          loading="lazy"
+        />
+      </div>
     </div>
   );
 }
