@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import MostraGallery from "@/components/MostraGallery";
+import ParallaxSection from "@/components/ParallaxSection";
 
 export const metadata: Metadata = {
   title: "Menu e Galleria | L'Oste e il Sacrestano",
@@ -207,14 +208,7 @@ export default function MenuPage() {
       </div>
 
       {/* PARALLAX TRA MENU E GALLERIA */}
-      <section className="mobile-parallax" style={{
-        position: "relative",
-        height: "500px",
-        backgroundImage: "url(/images/mostra-tmpzg8eq5a3.jpg)",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundSize: "cover"
-      }} />
+      <ParallaxSection src="/images/mostra-tmpzg8eq5a3.jpg" />
 
       {/* MOSTRA ARTISTICA */}
       <section style={{ padding: "60px 24px 120px", backgroundColor: "#fafafa" }}>
