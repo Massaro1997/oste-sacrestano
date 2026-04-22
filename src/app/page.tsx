@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroHome from "@/components/HeroHome";
 import HeroHomeMobile from "@/components/HeroHomeMobile";
-import ParallaxSection from "@/components/ParallaxSection";
 
 export default function Home() {
   return (
@@ -65,7 +64,14 @@ export default function Home() {
       </div>
 
       {/* PARALLAX PRE-CHEF */}
-      <ParallaxSection src="/images/parallax-piatti.jpg" />
+      <section className="mobile-parallax" style={{
+        position: "relative",
+        height: "500px",
+        backgroundImage: "url(/images/parallax-piatti.jpg)",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover"
+      }} />
 
       {/* CHEF PEPPE - Immagine a sinistra, testo a destra */}
       <section style={{ backgroundColor: "white" }}>
@@ -141,7 +147,14 @@ export default function Home() {
       </section>
 
       {/* PARALLAX PRE-PIATTI */}
-      <ParallaxSection src="/images/parallax-prenota.jpg" />
+      <section className="mobile-parallax" style={{
+        position: "relative",
+        height: "500px",
+        backgroundImage: "url(/images/parallax-prenota.jpg)",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover"
+      }} />
 
       {/* GALLERIA PIATTI */}
       <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
@@ -201,7 +214,14 @@ export default function Home() {
       </section>
 
       {/* PARALLAX PIATTO */}
-      <ParallaxSection src="/images/parallax-prenotazioni.jpg" />
+      <section className="mobile-parallax" style={{
+        position: "relative",
+        height: "500px",
+        backgroundImage: "url(/images/parallax-prenotazioni.jpg)",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center",
+        backgroundSize: "cover"
+      }} />
 
       {/* LICATA */}
       <section style={{ backgroundColor: "white" }}>

@@ -31,7 +31,20 @@ body {
   overflow-x: hidden;
 }
 
-/* Legacy parallax utility (unused — replaced by ParallaxSection component) */
+/* Parallax Sections */
+.parallax-section {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .parallax-section {
+    background-attachment: scroll;
+  }
+}
 
 /* Hero animations */
 @keyframes fadeInUp {
