@@ -12,13 +12,15 @@ export default function PeppePage() {
     <main>
       {/* HERO */}
       <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
-        <Image
-          src="/images/chef-peppe.jpg"
-          alt="Chef Peppe Bonsignore"
-          fill
-          style={{ objectFit: "cover", objectPosition: "top" }}
-          priority
-         quality={100}  sizes="100vw" />
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/images/chef-peppe-mobile.jpg" />
+          <img
+            src="/images/chef-peppe.jpg"
+            alt="Chef Peppe Bonsignore"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+            fetchPriority="high"
+          />
+        </picture>
         <div style={{
           position: "absolute",
           inset: 0,

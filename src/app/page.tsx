@@ -7,15 +7,15 @@ export default function Home() {
       <div style={{ position: "relative" }}>
       {/* HERO - Sticky sotto */}
       <section className="mobile-hero-100" style={{ position: "sticky", top: 0, height: "100vh", width: "100%", zIndex: 0 }}>
-        <Image
-          src="/images/hero.jpg"
-          alt="Piatti gourmet"
-          fill
-          style={{ objectFit: "cover" }}
-          priority
-          quality={100}
-          sizes="100vw"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/images/hero-mobile.jpg" />
+          <img
+            src="/images/hero.jpg"
+            alt="Piatti gourmet"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            fetchPriority="high"
+          />
+        </picture>
         <div style={{
           position: "absolute",
           inset: 0,

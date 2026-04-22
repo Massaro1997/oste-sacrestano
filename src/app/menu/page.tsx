@@ -40,13 +40,15 @@ export default function MenuPage() {
       {/* HERO */}
       <div style={{ position: "relative" }}>
       <section className="mobile-hero-80" style={{ position: "sticky", top: 0, height: "80vh", width: "100%", zIndex: 0 }}>
-        <Image
-          src="/images/hero.jpg"
-          alt="I piatti dello chef"
-          fill
-          style={{ objectFit: "cover" }}
-          priority
-         quality={100}  sizes="100vw" />
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/images/hero-mobile.jpg" />
+          <img
+            src="/images/hero.jpg"
+            alt="I piatti dello chef"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            fetchPriority="high"
+          />
+        </picture>
         <div style={{
           position: "absolute",
           inset: 0,

@@ -12,13 +12,15 @@ export default function LicataPage() {
     <main>
       {/* HERO */}
       <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
-        <Image
-          src="/images/licata-hero.jpg"
-          alt="Licata, Sicilia"
-          fill
-          style={{ objectFit: "cover" }}
-          priority
-         quality={100}  sizes="100vw" />
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/images/licata-hero-mobile.jpg" />
+          <img
+            src="/images/licata-hero.jpg"
+            alt="Licata, Sicilia"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            fetchPriority="high"
+          />
+        </picture>
         <div style={{
           position: "absolute",
           inset: 0,
