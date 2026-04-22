@@ -13,7 +13,9 @@ export default function Home() {
           fill
           style={{ objectFit: "cover" }}
           priority
-         quality={95} />
+          quality={100}
+          sizes="100vw"
+        />
         <div style={{
           position: "absolute",
           inset: 0,
@@ -135,7 +137,7 @@ export default function Home() {
               alt="Chef Peppe Bonsignore"
               fill
               style={{ objectFit: "cover", objectPosition: "top" }}
-             quality={95} />
+             quality={95}  sizes="100vw" />
           </div>
 
           {/* Testo */}
@@ -248,7 +250,7 @@ export default function Home() {
                   fill
                   style={{ objectFit: "cover", transition: "transform 0.5s" }}
                   className="hover:scale-105"
-                 quality={95} />
+                 quality={95}  sizes="100vw" />
               </div>
             ))}
           </div>
@@ -340,7 +342,7 @@ export default function Home() {
               alt="Licata"
               fill
               style={{ objectFit: "cover" }}
-             quality={95} />
+             quality={95}  sizes="100vw" />
           </div>
         </div>
       </section>

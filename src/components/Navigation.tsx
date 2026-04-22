@@ -58,9 +58,9 @@ export default function Navigation() {
 
   return (
     <nav className={navClass}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="flex items-center justify-between gap-3">
+          <Link href="/" className="relative z-[70] flex-shrink min-w-0">
             <Image
               src="/images/LOGO NUOVO BIANCO.png"
               alt="L Oste e il Sacrestano"
@@ -68,7 +68,7 @@ export default function Navigation() {
               height={60}
               className={logoClass}
               priority
-             quality={95} />
+             quality={100} />
           </Link>
 
           <div className="hidden md:flex items-center gap-10">
@@ -86,7 +86,8 @@ export default function Navigation() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={buttonClass}
+            className={buttonClass + " flex-shrink-0 -mr-2"}
+            aria-label="Menu"
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <span className={spanBaseClass + (isMobileMenuOpen ? " rotate-45 translate-y-2" : "")} />

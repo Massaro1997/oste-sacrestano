@@ -46,7 +46,7 @@ export default function MenuPage() {
           fill
           style={{ objectFit: "cover" }}
           priority
-         quality={95} />
+         quality={100}  sizes="100vw" />
         <div style={{
           position: "absolute",
           inset: 0,
