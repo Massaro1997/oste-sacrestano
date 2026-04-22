@@ -66,7 +66,7 @@ export default function Navigation() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 h-16 md:h-20 ${navBg}`}
       >
-        <div className="relative h-full w-full mx-auto pl-[10px] pr-6 md:px-[5px] flex items-center justify-between gap-6">
+        <div className="relative h-full w-full mx-auto pl-[10px] pr-6 md:px-8 lg:px-12 flex items-center justify-between gap-6">
           {/* LOGO */}
           <Link
             href="/"
