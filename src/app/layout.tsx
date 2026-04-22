@@ -15,13 +15,38 @@ const montserrat = Montserrat({
   weight: ["300", "400", "500", "600"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://losteeilsacrestano.it");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "L'Oste e il Sacrestano | Osteria Contemporanea a Licata",
   description: "Osteria contemporanea nel cuore di Licata. Lo Chef Peppe Bonsignore propone una cucina siciliana moderna con prodotti freschi del territorio. Ristorante selezionato dalla Guida Michelin.",
   keywords: "ristorante licata, osteria siciliana, peppe bonsignore, cucina siciliana, guida michelin sicilia, ristorante agrigento",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "L'Oste e il Sacrestano | Osteria Contemporanea",
+    type: "website",
+    siteName: "L'Oste e il Sacrestano",
+    title: "L'Oste e il Sacrestano | Osteria Contemporanea a Licata",
     description: "Osteria contemporanea nel cuore di Licata. Cucina siciliana moderna dello Chef Peppe Bonsignore.",
+    url: siteUrl,
+    locale: "it_IT",
+    images: [
+      {
+        url: "/images/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "L'Oste e il Sacrestano — piatti dello Chef Peppe Bonsignore",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "L'Oste e il Sacrestano | Osteria Contemporanea a Licata",
+    description: "Cucina siciliana moderna dello Chef Peppe Bonsignore nel cuore di Licata.",
     images: ["/images/hero.jpg"],
   },
   icons: {
