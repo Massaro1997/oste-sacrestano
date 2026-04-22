@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const slides = [
-  "/images/hero-mobile.jpg",
-  "/images/galleria-3.jpg",
-  "/images/galleria-4.jpg",
-  "/images/mostra-tmp863gusaj.jpg",
-  "/images/mostra-tmposllomzy.jpg",
-  "/images/023.jpg",
+  "/images/hero-mobile-imgs/hero-mobile.jpg",
+  "/images/hero-mobile-imgs/m-tmp863gusaj.jpg",
+  "/images/hero-mobile-imgs/m-tmp3o0ihd9j.jpg",
+  "/images/hero-mobile-imgs/m-tmpctja64ge.jpg",
+  "/images/hero-mobile-imgs/m-tmposllomzy.jpg",
+  "/images/hero-mobile-imgs/m-tmppsmcc2_j.jpg",
+  "/images/hero-mobile-imgs/m-screenshot.jpg",
 ];
 
 const SLIDE_INTERVAL = 6000;
@@ -53,9 +54,9 @@ export default function HeroHomeMobile() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
         <p
-          className="text-white text-[11px] tracking-[0.35em] uppercase mb-6"
+          className="text-[#c9a55c] text-[10px] tracking-[0.4em] uppercase mb-5"
           style={{ fontFamily: "Montserrat, sans-serif" }}
         >
           Osteria Contemporanea
@@ -64,9 +65,18 @@ export default function HeroHomeMobile() {
         <img
           src="/images/LOGO ULTIMO NUOVO.png"
           alt="L'Oste e il Sacrestano"
-          className="h-40 w-auto mb-10"
-          style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.5))" }}
+          className="h-28 w-auto mb-7"
+          style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.55))" }}
         />
+
+        <div className="w-10 h-px bg-[#c9a55c]/70 mb-7" />
+
+        <p
+          className="text-white/85 text-[15px] leading-relaxed max-w-[280px] mb-10"
+          style={{ fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}
+        >
+          Cucina siciliana contemporanea nel cuore di Licata
+        </p>
 
         <Link
           href="/prenota"
