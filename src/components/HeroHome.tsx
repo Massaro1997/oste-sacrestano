@@ -99,7 +99,7 @@ export default function HeroHome() {
           />
         </div>
 
-        <div className="mt-10 md:mt-12" />
+        <div className="mt-20 md:mt-28 lg:mt-32" />
 
         <Link
           href="/prenota"

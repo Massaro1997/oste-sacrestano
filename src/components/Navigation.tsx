@@ -61,7 +61,7 @@ export default function Navigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}
         style={{ height: "104px" }}
       >
-        <div className="h-full w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-6">
+        <div className="relative h-full w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-6">
           {/* LOGO */}
           <Link
             href="/"
@@ -83,9 +83,9 @@ export default function Navigation() {
             />
           </Link>
 
-          {/* DESKTOP NAV LINKS — right aligned */}
+          {/* DESKTOP NAV LINKS — absolute-centered */}
           <nav
-            className="hidden md:flex items-center gap-6 lg:gap-8"
+            className="hidden md:flex items-center gap-6 lg:gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
             {navLinks.map((link) => {
