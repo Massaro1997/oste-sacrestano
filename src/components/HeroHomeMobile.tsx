@@ -71,12 +71,7 @@ export default function HeroHomeMobile() {
 
         <div className="w-10 h-px bg-[#c9a55c]/70 mb-7" />
 
-        <p
-          className="text-white/85 text-[15px] leading-relaxed max-w-[280px] mb-10"
-          style={{ fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}
-        >
-          Cucina siciliana contemporanea nel cuore di Licata
-        </p>
+        <div className="h-12 mb-10" aria-hidden="true" />
 
         <Link
           href="/prenota"
