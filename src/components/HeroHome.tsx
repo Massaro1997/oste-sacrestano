@@ -99,12 +99,7 @@ export default function HeroHome() {
           />
         </div>
 
-        <p
-          className="text-white/90 text-base md:text-xl max-w-2xl mt-8 md:mt-10 mb-10 md:mb-12"
-          style={{ fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}
-        >
-          Cucina siciliana contemporanea nel cuore di Licata
-        </p>
+        <div className="mt-10 md:mt-12" />
 
         <Link
           href="/prenota"
