@@ -14,10 +14,35 @@ const slides = [
 
 const SLIDE_INTERVAL = 6000;
 
+// Hero logo height (px) matches tailwind class h-24/h-40/h-56.
+// Nav logo height (px) matches nav class h-12/h-14/h-16.
+// Ratios used to compute the scale target per breakpoint.
+function useViewport() {
+  const [vw, setVw] = useState(1200);
+  const [vh, setVh] = useState(900);
+  useEffect(() => {
+    const update = () => {
+      setVw(window.innerWidth);
+      // Use the largest viewport height ever seen in this session so the
+      // mobile URL-bar show/hide does not jitter the morph math.
+      setVh((prev) => Math.max(prev, window.innerHeight));
+    };
+    update();
+    window.addEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+    return () => {
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
+  }, []);
+  return { vw, vh };
+}
+
 export default function HeroHome() {
   const [active, setActive] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const { vw, vh } = useViewport();
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -33,12 +58,23 @@ export default function HeroHome() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Logo morph math: scale from 1 (hero big) to ~0.22 (nav size),
-  // translate up toward nav. Driven by scrollY within viewport.
-  const vh = typeof window !== "undefined" ? window.innerHeight : 900;
-  const progress = Math.min(1, Math.max(0, scrollY / (vh * 0.6)));
-  const logoScale = 1 - progress * 0.78; // 1 -> 0.22
-  const logoTranslateY = -progress * (vh * 0.45 - 52); // toward nav center (~52px from top)
+  // Breakpoint-aware logo sizes (must match the Tailwind classes below
+  // and Navigation.tsx).
+  const heroLogoPx = vw >= 1024 ? 224 : vw >= 768 ? 160 : 96; // h-56 / h-40 / h-24
+  const navLogoPx = vw >= 1024 ? 64 : vw >= 768 ? 56 : 48;    // h-16 / h-14 / h-12
+  const navCenterY = 40; // nav is 80px tall, center at 40px from top
+  const scrollRange = vh * 0.6;
+  const progress = Math.min(1, Math.max(0, scrollY / scrollRange));
+
+  // Scale hero logo down to match nav logo size at end of scroll range.
+  const scaleTarget = navLogoPx / heroLogoPx;
+  const logoScale = 1 - (1 - scaleTarget) * progress;
+
+  // Distance logo needs to travel upward: from hero center to nav center.
+  // Hero center Y ≈ vh/2, nav center Y = navCenterY (40).
+  const travel = vh / 2 - navCenterY;
+  const logoTranslateY = -progress * travel;
+
   const textOpacity = 1 - Math.min(1, progress * 1.6);
 
   return (
@@ -73,10 +109,10 @@ export default function HeroHome() {
         <div className="absolute inset-0 bg-black/45" />
       </div>
 
-      {/* Content */}
+      {/* Static content (eyebrow + CTA) — fades out on scroll */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center text-center px-6 h-full"
-        style={{ opacity: textOpacity, pointerEvents: textOpacity < 0.1 ? "none" : "auto" }}
+        className="relative z-10 flex flex-col items-center justify-center text-center px-6 h-full pointer-events-none"
+        style={{ opacity: textOpacity }}
       >
         <p
           className="text-white text-xs md:text-sm tracking-[0.35em] uppercase mb-8 md:mb-10"
@@ -85,32 +121,43 @@ export default function HeroHome() {
           Osteria Contemporanea
         </p>
 
-        {/* Logo — morphs into navbar on scroll */}
+        {/* Placeholder keeps vertical layout identical to logo position;
+            the morphing logo is absolutely positioned below. */}
         <div
-          className="will-change-transform"
           style={{
-            transform: `translateY(${logoTranslateY}px) scale(${logoScale})`,
-            transformOrigin: "center top",
-            transition: "none",
+            height: `${heroLogoPx}px`,
+            width: "1px",
           }}
-        >
-          <img
-            src="/images/LOGO ULTIMO NUOVO.png"
-            alt="L'Oste e il Sacrestano"
-            className="h-24 md:h-40 lg:h-56 w-auto"
-            style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.5))" }}
-          />
-        </div>
+        />
 
         <div className="mt-20 md:mt-28 lg:mt-32" />
 
         <Link
           href="/prenota"
-          className="btn-primary"
-          style={{ fontFamily: "Montserrat, sans-serif" }}
+          className="btn-primary pointer-events-auto"
+          style={{ fontFamily: "Montserrat, sans-serif", opacity: textOpacity > 0.1 ? 1 : 0 }}
         >
           Prenota un Tavolo
         </Link>
+      </div>
+
+      {/* MORPHING LOGO — absolute, centered. Anchored to section center
+          so math is stable; translates upward on scroll toward the nav. */}
+      <div
+        className="pointer-events-none absolute left-1/2 z-20 will-change-transform"
+        style={{
+          top: "50%",
+          transform: `translate(-50%, calc(-50% + ${logoTranslateY}px)) scale(${logoScale})`,
+          transformOrigin: "center center",
+          transition: "none",
+        }}
+      >
+        <img
+          src="/images/LOGO ULTIMO NUOVO.png"
+          alt="L'Oste e il Sacrestano"
+          className="h-24 md:h-40 lg:h-56 w-auto"
+          style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.5))" }}
+        />
       </div>
 
       {/* Slide indicators */}
