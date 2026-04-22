@@ -109,10 +109,12 @@ export default function Navigation() {
             })}
           </nav>
 
-          {/* PHONE CTA (desktop) */}
+          {/* PHONE CTA (desktop) — visible only when nav is dark (scrolled) */}
           <a
             href="tel:+390922774736"
-            className="hidden md:inline-flex items-center gap-2 px-4 lg:px-5 py-2 border border-[#c9a55c] text-[#c9a55c] text-[12px] lg:text-[13px] tracking-[0.18em] uppercase transition-colors duration-300 hover:bg-[#c9a55c] hover:text-black flex-shrink-0"
+            className={`hidden md:inline-flex items-center gap-2 text-[#c9a55c] text-[13px] tracking-[0.18em] uppercase transition-opacity duration-300 hover:text-white flex-shrink-0 mr-4 lg:mr-8 ${
+              isScrolled ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+            }`}
             style={{ fontFamily: "Montserrat, sans-serif" }}
             aria-label="Chiama 0922 774736"
           >
