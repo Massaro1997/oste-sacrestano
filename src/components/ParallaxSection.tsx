@@ -4,30 +4,41 @@ import { useEffect, useRef, useState } from "react";
 
 type Props = {
   src: string;
+  /** Visible height of the section in px. */
   height?: number;
-  /** 0 = no parallax, 0.5 = strong. Default 0.25. */
-  speed?: number;
   alt?: string;
 };
 
-export default function ParallaxSection({ src, height = 500, speed = 0.25, alt = "" }: Props) {
+/**
+ * Reliable parallax: section is a window that stays fixed in flow,
+ * while the inner image container uses `position: sticky` + a CSS
+ * translate driven by the section's own scroll progress.
+ *
+ * No fixed-background bug. No edge gaps (image is 2x section height).
+ * No JS layout on every frame — we only update a CSS var.
+ */
+export default function ParallaxSection({ src, height = 500, alt = "" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
+  const imgRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
+    const img = imgRef.current;
+    if (!el || !img) return;
+
     let raf = 0;
     const update = () => {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
+      const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // Only update while the section is within viewport + small margin.
-      if (rect.bottom < -200 || rect.top > vh + 200) return;
-      // Distance from section top to viewport top, used to drive parallax.
-      // When section top aligns with viewport top -> offset = 0.
-      // As section scrolls up (top becomes negative), image translates down
-      // slower than the section so the background "lags" behind.
-      const delta = rect.top;
-      setOffset(-delta * speed);
+      // Progress 0..1 as the section traverses the viewport.
+      // -rect.height ... +vh mapped to 0..1.
+      const total = vh + rect.height;
+      const p = Math.min(1, Math.max(0, (vh - rect.top) / total));
+      // Translate the oversized image -25% .. +25% of its overflow.
+      // Image is 200% tall; it has 50% extra height to move through.
+      const translatePct = -25 + p * 50; // -25% -> +25%
+      img.style.transform = `translate3d(0, ${translatePct}%, 0)`;
     };
 
     const onScroll = () => {
@@ -38,46 +49,54 @@ export default function ParallaxSection({ src, height = 500, speed = 0.25, alt =
       });
     };
 
+    // IntersectionObserver: only start listening when section is in view.
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          setIsVisible(e.isIntersecting);
+          if (e.isIntersecting) update();
+        }
+      },
+      { rootMargin: "200px 0px" }
+    );
+    io.observe(el);
+
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", update);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", update);
+      io.disconnect();
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [speed]);
-
-  // Buffer height so img never exposes empty edges regardless of scroll position.
-  // Max offset during viewport traversal ≈ (vh + height) * speed. Use a
-  // generous extra 40% of the section height as a safety pad.
-  const bufferPx = Math.ceil((typeof window !== "undefined" ? window.innerHeight : 1000) * speed + height * 0.4);
+  }, []);
 
   return (
     <div
       ref={ref}
-      className="relative w-full overflow-hidden bg-black"
+      className="relative w-full overflow-hidden bg-neutral-900"
       style={{ height: `${height}px` }}
       {...(alt === "" ? { "aria-hidden": true } : {})}
     >
+      {/* Oversized image wrapper (200% tall of section) — translated on scroll. */}
       <div
-        className="absolute left-0 right-0 will-change-transform"
+        ref={imgRef}
+        className="absolute left-0 right-0 top-0 will-change-transform"
         style={{
-          top: `-${bufferPx}px`,
-          bottom: `-${bufferPx}px`,
-          transform: `translate3d(0, ${offset}px, 0)`,
+          height: "200%",
+          transform: "translate3d(0, -25%, 0)",
+          // Pause work when offscreen to save battery.
+          visibility: isVisible ? "visible" : "hidden",
         }}
       >
         <img
           src={src}
           alt={alt}
-          className="w-full h-full"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-            display: "block",
-          }}
+          className="block w-full h-full"
+          style={{ objectFit: "cover", objectPosition: "center" }}
           loading="lazy"
+          decoding="async"
         />
       </div>
     </div>
