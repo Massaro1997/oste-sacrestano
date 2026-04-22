@@ -9,6 +9,7 @@ const slides = [
   { desktop: "/images/galleria-4.jpg", mobile: "/images/galleria-4.jpg" },
   { desktop: "/images/galleria-6-new.jpg", mobile: "/images/galleria-6-new.jpg" },
   { desktop: "/images/home-galleria-peppe-chiara.jpg", mobile: "/images/home-galleria-peppe-chiara.jpg" },
+  { desktop: "/images/mostra-tmppsmcc2_j.jpg", mobile: "/images/mostra-tmppsmcc2_j.jpg" },
 ];
 
 const SLIDE_INTERVAL = 6000;
