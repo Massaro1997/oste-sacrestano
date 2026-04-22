@@ -180,7 +180,7 @@ export default function AdminPage() {
 
   return (
     <main style={{ minHeight: "100vh", backgroundColor: "#f5f5f5", paddingBottom: "60px" }}>
-      <header style={{
+      <header className="admin-header" style={{
         backgroundColor: "#1a1a1a",
         color: "white",
         padding: "24px 32px",
@@ -229,7 +229,7 @@ export default function AdminPage() {
       </header>
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
-        <div style={{ display: "flex", gap: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
+        <div className="admin-filters" style={{ display: "flex", gap: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
           {(["all", "pending", "confermata", "rifiutata"] as const).map((k) => (
             <button
               key={k}
@@ -280,7 +280,7 @@ export default function AdminPage() {
 
         <div style={{ display: "grid", gap: "16px" }}>
           {filtered.map((p) => (
-            <div key={p.id} style={{
+            <div key={p.id} className="admin-card-row" style={{
               backgroundColor: "white",
               padding: "24px",
               display: "grid",
@@ -344,7 +344,7 @@ export default function AdminPage() {
                   Ricevuta: {new Date(p.createdAt).toLocaleString("it-IT")}
                 </p>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", minWidth: "120px" }}>
+              <div className="admin-card-actions" style={{ display: "flex", flexDirection: "column", gap: "8px", minWidth: "120px" }}>
                 {p.stato !== "confermata" && (
                   <button
                     onClick={() => setStato(p.id, "confermata")}

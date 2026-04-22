@@ -27,6 +27,7 @@ export default function MostraGallery({ items }: { items: Dish[] }) {
     <>
       {/* GRID UNIFORME */}
       <div
+        className="mostra-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
@@ -169,14 +170,16 @@ export default function MostraGallery({ items }: { items: Dish[] }) {
       )}
 
       <style jsx>{`
-        @media (max-width: 1024px) {
-          .mostra-masonry {
-            column-count: 2 !important;
+        @media (max-width: 900px) {
+          .mostra-grid {
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+            gap: 12px !important;
           }
         }
-        @media (max-width: 640px) {
-          .mostra-masonry {
-            column-count: 1 !important;
+        @media (max-width: 480px) {
+          .mostra-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 8px !important;
           }
         }
       `}</style>

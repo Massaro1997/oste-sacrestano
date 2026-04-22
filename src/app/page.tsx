@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <div style={{ position: "relative" }}>
       {/* HERO - Sticky sotto */}
-      <section style={{ position: "sticky", top: 0, height: "100vh", width: "100%", zIndex: 0 }}>
+      <section className="mobile-hero-100" style={{ position: "sticky", top: 0, height: "100vh", width: "100%", zIndex: 0 }}>
         <Image
           src="/images/hero.png"
           alt="Piatti gourmet"
@@ -59,7 +59,7 @@ export default function Home() {
       </section>
 
       {/* BENVENUTI - scorre sopra hero */}
-      <section style={{
+      <section className="mobile-section" style={{
         padding: "120px 24px",
         backgroundColor: "#fafafa",
         textAlign: "center",
@@ -112,7 +112,7 @@ export default function Home() {
       </div>
 
       {/* PARALLAX PRE-CHEF */}
-      <section style={{
+      <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
         backgroundImage: "url(/images/parallax-piatti.png)",
@@ -123,13 +123,13 @@ export default function Home() {
 
       {/* CHEF PEPPE - Immagine a sinistra, testo a destra */}
       <section style={{ backgroundColor: "white" }}>
-        <div style={{
+        <div className="mobile-split" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           minHeight: "700px"
         }}>
           {/* Immagine Chef */}
-          <div style={{ position: "relative", minHeight: "500px" }}>
+          <div className="mobile-split-image" style={{ position: "relative", minHeight: "500px" }}>
             <Image
               src="/images/chef-peppe.png"
               alt="Chef Peppe Bonsignore"
@@ -139,7 +139,7 @@ export default function Home() {
           </div>
 
           {/* Testo */}
-          <div style={{
+          <div className="mobile-split-text" style={{
             display: "flex",
             alignItems: "center",
             padding: "60px"
@@ -195,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* PARALLAX PRE-PIATTI */}
-      <section style={{
+      <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
         backgroundImage: "url(/images/parallax-prenotazioni.png)",
@@ -205,7 +205,7 @@ export default function Home() {
       }} />
 
       {/* GALLERIA PIATTI */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
+      <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <p style={{
@@ -228,7 +228,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div style={{
+          <div className="mobile-gallery-3" style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: "24px"
@@ -262,7 +262,7 @@ export default function Home() {
       </section>
 
       {/* PARALLAX PIATTO */}
-      <section style={{
+      <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
         backgroundImage: "url(/images/parallax-prenota.png)",
@@ -273,13 +273,13 @@ export default function Home() {
 
       {/* LICATA */}
       <section style={{ backgroundColor: "white" }}>
-        <div style={{
+        <div className="mobile-split" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           minHeight: "600px"
         }}>
           {/* Testo */}
-          <div style={{
+          <div className="mobile-split-text" style={{
             display: "flex",
             alignItems: "center",
             padding: "60px",
@@ -334,7 +334,7 @@ export default function Home() {
           </div>
 
           {/* Immagine */}
-          <div style={{ position: "relative", minHeight: "400px", order: 2 }}>
+          <div className="mobile-split-image" style={{ position: "relative", minHeight: "400px", order: 2 }}>
             <Image
               src="/images/004.jpg"
               alt="Licata"
@@ -346,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* PARALLAX PRE-PRENOTAZIONI */}
-      <section style={{
+      <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
         backgroundImage: "url(/images/parallax-quote.png)",
@@ -356,7 +356,7 @@ export default function Home() {
       }} />
 
       {/* CTA PRENOTAZIONE */}
-      <section style={{
+      <section className="mobile-section-dark" style={{
         padding: "120px 24px",
         backgroundColor: "#1a1a1a",
         textAlign: "center"
@@ -392,7 +392,7 @@ export default function Home() {
             Prenota il tuo tavolo e lasciati trasportare in un viaggio sensoriale
             attraverso i sapori autentici della Sicilia. Chiara e Peppe vi aspettano.
           </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+          <div className="mobile-cta-group" style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/prenota" className="btn-primary" style={{ fontFamily: "Montserrat, sans-serif" }}>
               Prenota Online
             </Link>
@@ -416,7 +416,7 @@ export default function Home() {
       </section>
 
       {/* PARALLAX PRE-FOOTER */}
-      <section style={{
+      <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
         backgroundImage: "url(/images/parallax-footer.png)",

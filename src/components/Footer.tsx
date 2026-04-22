@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#1a1a1a", color: "white" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 24px" }}>
-        <div style={{
+      <div className="mobile-footer-wrap" style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 24px" }}>
+        <div className="mobile-footer-grid" style={{
           display: "grid",
           gridTemplateColumns: "2fr 1fr 1fr",
           gap: "60px"
@@ -86,7 +86,7 @@ export default function Footer() {
           marginTop: "60px",
           paddingTop: "32px"
         }}>
-          <div style={{
+          <div className="mobile-footer-bottom" style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",

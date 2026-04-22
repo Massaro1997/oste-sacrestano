@@ -11,7 +11,7 @@ export default function LicataPage() {
   return (
     <main>
       {/* HERO */}
-      <section style={{ position: "relative", height: "80vh", width: "100%" }}>
+      <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
         <Image
           src="/images/licata-hero.png"
           alt="Licata, Sicilia"
@@ -57,7 +57,7 @@ export default function LicataPage() {
       </section>
 
       {/* INTRODUCTION */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
+      <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif",
@@ -101,17 +101,17 @@ export default function LicataPage() {
 
       {/* IL MARE */}
       <section style={{ backgroundColor: "white" }}>
-        <div style={{
+        <div className="mobile-split" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           minHeight: "600px",
           maxWidth: "1400px",
           margin: "0 auto"
         }}>
-          <div style={{ position: "relative", minHeight: "400px" }}>
+          <div className="mobile-split-image" style={{ position: "relative", minHeight: "400px" }}>
             <Image src="/images/porto-peschereccio.png" alt="Il porto peschereccio di Licata" fill style={{ objectFit: "cover" }} />
           </div>
-          <div style={{ display: "flex", alignItems: "center", padding: "60px" }}>
+          <div className="mobile-split-text" style={{ display: "flex", alignItems: "center", padding: "60px" }}>
             <div style={{ maxWidth: "500px" }}>
               <p style={{
                 fontFamily: "Montserrat, sans-serif",
@@ -148,14 +148,14 @@ export default function LicataPage() {
 
       {/* LA TERRA */}
       <section style={{ backgroundColor: "white" }}>
-        <div style={{
+        <div className="mobile-split" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           minHeight: "600px",
           maxWidth: "1400px",
           margin: "0 auto"
         }}>
-          <div style={{ display: "flex", alignItems: "center", padding: "60px", order: 1 }}>
+          <div className="mobile-split-text" style={{ display: "flex", alignItems: "center", padding: "60px", order: 1 }}>
             <div style={{ maxWidth: "500px" }}>
               <p style={{
                 fontFamily: "Montserrat, sans-serif",
@@ -187,14 +187,14 @@ export default function LicataPage() {
               </p>
             </div>
           </div>
-          <div style={{ position: "relative", minHeight: "400px", order: 2 }}>
+          <div className="mobile-split-image" style={{ position: "relative", minHeight: "400px", order: 2 }}>
             <Image src="/images/vineyard-rows.png" alt="Vigneti e campagna siciliana" fill style={{ objectFit: "cover" }} />
           </div>
         </div>
       </section>
 
       {/* COSA VEDERE */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
+      <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
             <p style={{
@@ -298,7 +298,7 @@ export default function LicataPage() {
       </section>
 
       {/* DOVE SIAMO */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#1a1a1a", textAlign: "center" }}>
+      <section className="mobile-section-dark" style={{ padding: "120px 24px", backgroundColor: "#1a1a1a", textAlign: "center" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif",

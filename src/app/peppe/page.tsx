@@ -11,7 +11,7 @@ export default function PeppePage() {
   return (
     <main>
       {/* HERO */}
-      <section style={{ position: "relative", height: "80vh", width: "100%" }}>
+      <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
         <Image
           src="/images/chef-peppe.png"
           alt="Chef Peppe Bonsignore"
@@ -24,7 +24,7 @@ export default function PeppePage() {
           inset: 0,
           background: "linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2), transparent)"
         }} />
-        <div style={{
+        <div className="peppe-hero-caption" style={{
           position: "absolute",
           bottom: 0,
           left: 0,
@@ -55,7 +55,7 @@ export default function PeppePage() {
       </section>
 
       {/* LA STORIA */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
+      <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "#fafafa" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif",
@@ -107,7 +107,7 @@ export default function PeppePage() {
       </section>
 
       {/* GALLERIA PEPPE & CHIARA */}
-      <section style={{ padding: "120px 24px", backgroundColor: "white" }}>
+      <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "white" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <p style={{
@@ -131,7 +131,7 @@ export default function PeppePage() {
             <div style={{ width: "60px", height: "1px", backgroundColor: "#c9a55c", margin: "24px auto 0" }} />
           </div>
 
-          <div style={{
+          <div className="mobile-gallery-3" style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: "16px"
@@ -153,14 +153,14 @@ export default function PeppePage() {
 
       {/* FILOSOFIA */}
       <section style={{ backgroundColor: "white" }}>
-        <div style={{
+        <div className="mobile-split" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           minHeight: "700px",
           maxWidth: "1400px",
           margin: "0 auto"
         }}>
-          <div style={{ display: "flex", alignItems: "center", padding: "60px" }}>
+          <div className="mobile-split-text" style={{ display: "flex", alignItems: "center", padding: "60px" }}>
             <div style={{ maxWidth: "500px" }}>
               <p style={{
                 fontFamily: "Montserrat, sans-serif",
@@ -210,7 +210,7 @@ export default function PeppePage() {
               </p>
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", padding: "60px", alignContent: "center" }}>
+          <div className="mobile-peppe-images mobile-split-image" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", padding: "60px", alignContent: "center" }}>
             <div style={{ position: "relative", aspectRatio: "3/4" }}>
               <Image src="/images/007.jpg" alt="Piatto dello chef" fill style={{ objectFit: "cover" }} />
             </div>
@@ -222,7 +222,7 @@ export default function PeppePage() {
       </section>
 
       {/* RICONOSCIMENTI */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#1a1a1a", textAlign: "center" }}>
+      <section className="mobile-section-dark" style={{ padding: "120px 24px", backgroundColor: "#1a1a1a", textAlign: "center" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif",
@@ -253,7 +253,7 @@ export default function PeppePage() {
           }}>
             La cucina di Peppe Bonsignore e stata riconosciuta dalla prestigiosa Guida Michelin, un traguardo che premia anni di dedizione, passione e ricerca della perfezione.
           </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "80px" }}>
+          <div className="mobile-stats-row" style={{ display: "flex", justifyContent: "center", gap: "80px" }}>
             <div style={{ textAlign: "center" }}>
               <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "56px", fontWeight: 300, color: "#c9a55c", marginBottom: "8px" }}>2004</p>
               <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "14px", color: "#666" }}>Anno di apertura</p>
@@ -289,7 +289,7 @@ export default function PeppePage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa", textAlign: "center" }}>
+      <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "#fafafa", textAlign: "center" }}>
         <div style={{ maxWidth: "600px", margin: "0 auto" }}>
           <h2 style={{
             fontFamily: "Cormorant Garamond, serif",
@@ -449,7 +449,7 @@ export default function PeppePage() {
       </section>
 
       {/* SOCIAL */}
-      <section style={{ padding: "100px 24px", backgroundColor: "white", textAlign: "center" }}>
+      <section className="mobile-section" style={{ padding: "100px 24px", backgroundColor: "white", textAlign: "center" }}>
         <div style={{ maxWidth: "600px", margin: "0 auto" }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif",

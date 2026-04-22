@@ -138,6 +138,8 @@ body {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-primary:hover {
@@ -155,11 +157,24 @@ body {
   border: 1px solid #1a1a1a;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-outline:hover {
   background-color: #1a1a1a;
   color: white;
+}
+
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-outline {
+    padding: 12px 24px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
 /* Image hover effects */
@@ -187,4 +202,222 @@ body {
 ::selection {
   background-color: #c9a55c;
   color: white;
+}
+
+/* ===== Mobile responsive utilities ===== */
+
+/* Split: grid 2-col → single-col on mobile */
+.mobile-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 900px) {
+  .mobile-split {
+    grid-template-columns: 1fr !important;
+  }
+  .mobile-split > * {
+    padding: 40px 24px !important;
+    min-height: auto !important;
+  }
+  .mobile-split-image {
+    min-height: 300px !important;
+    order: 0 !important;
+  }
+  .mobile-split-text {
+    order: 1 !important;
+  }
+}
+
+/* Section with standard padding → reduce on mobile */
+@media (max-width: 640px) {
+  .mobile-section {
+    padding: 60px 20px !important;
+  }
+  .mobile-section-dark {
+    padding: 60px 20px !important;
+  }
+}
+
+/* Parallax sections: shorten on mobile */
+@media (max-width: 640px) {
+  .mobile-parallax {
+    height: 280px !important;
+  }
+}
+
+/* Hero sections shrink on small screens */
+@media (max-width: 640px) {
+  .mobile-hero-100 {
+    height: 90vh !important;
+  }
+  .mobile-hero-80 {
+    height: 60vh !important;
+  }
+}
+
+/* Two-column grid info/form: stack on mobile */
+@media (max-width: 900px) {
+  .mobile-stack-2 {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .mobile-stack-2 > div:last-child {
+    padding-left: 0 !important;
+  }
+}
+
+/* Inline form row 1fr 1fr / 1fr 1fr 1fr → stack */
+@media (max-width: 640px) {
+  .mobile-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* Peppe philosophy right panel (2-col image grid inside split) */
+@media (max-width: 900px) {
+  .mobile-peppe-images {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 0 24px 40px !important;
+  }
+  .mobile-peppe-images > div:nth-child(2) {
+    margin-top: 0 !important;
+  }
+}
+
+/* CTA groups (buttons side-by-side) */
+@media (max-width: 640px) {
+  .mobile-cta-group {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .mobile-cta-group > * {
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+}
+
+/* Stats row (2004 / 20+ experience) */
+@media (max-width: 640px) {
+  .mobile-stats-row {
+    gap: 32px !important;
+    flex-wrap: wrap;
+  }
+  .mobile-stats-row > div > p:first-child {
+    font-size: 42px !important;
+  }
+}
+
+/* Footer grid */
+@media (max-width: 900px) {
+  .mobile-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+@media (max-width: 640px) {
+  .mobile-footer-grid {
+    padding: 0 !important;
+  }
+  .mobile-footer-wrap {
+    padding: 60px 20px !important;
+  }
+  .mobile-footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+}
+
+/* Admin + prenota info sidebar stack */
+@media (max-width: 900px) {
+  .mobile-info-sidebar {
+    padding-left: 0 !important;
+  }
+}
+
+/* Press scroll side padding reduce */
+@media (max-width: 640px) {
+  .press-scroll {
+    padding: 8px 20px 28px !important;
+  }
+  .press-scroll > a {
+    flex: 0 0 280px !important;
+    padding: 24px !important;
+  }
+}
+
+/* Gallery grid: 3-col → 2-col → 1-col */
+@media (max-width: 900px) {
+  .mobile-gallery-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 480px) {
+  .mobile-gallery-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Menu pricing cards grid */
+@media (max-width: 640px) {
+  .mobile-menu-cards {
+    gap: 20px !important;
+  }
+}
+
+/* Peppe hero caption */
+@media (max-width: 640px) {
+  .peppe-hero-caption {
+    padding: 32px 20px !important;
+  }
+}
+
+/* Licata dove siamo section + hero */
+@media (max-width: 640px) {
+  .mobile-hero-90 {
+    height: 70vh !important;
+  }
+}
+
+/* Prenota form inputs on mobile */
+@media (max-width: 640px) {
+  .prenota-input,
+  .prenota-select,
+  .prenota-textarea {
+    padding: 12px 14px !important;
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+}
+
+/* Admin dashboard mobile */
+@media (max-width: 640px) {
+  .admin-header {
+    padding: 20px !important;
+  }
+  .admin-filters {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .admin-filters > button {
+    flex: 1 1 calc(50% - 4px) !important;
+    min-width: 0 !important;
+    font-size: 12px !important;
+    padding: 10px 12px !important;
+  }
+  .admin-card-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 20px !important;
+  }
+  .admin-card-actions {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+  }
+  .admin-card-actions > button {
+    flex: 1 1 calc(50% - 4px);
+  }
 }

@@ -54,7 +54,7 @@ export default function PrenotaPage() {
     padding: "14px 16px",
     border: "1px solid #ddd",
     fontFamily: "Montserrat, sans-serif",
-    fontSize: "15px",
+    fontSize: "16px",
     outline: "none",
     transition: "border-color 0.3s",
     backgroundColor: "white"
@@ -128,7 +128,7 @@ export default function PrenotaPage() {
   return (
     <main>
       {/* HERO */}
-      <section style={{ position: "relative", height: "80vh", width: "100%" }}>
+      <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
         <Image
           src="/images/hero-prenota.png"
           alt="Prenota un tavolo"
@@ -173,9 +173,9 @@ export default function PrenotaPage() {
       </section>
 
       {/* FORM SECTION */}
-      <section style={{ padding: "80px 24px", backgroundColor: "#fafafa" }}>
+      <section className="mobile-section" style={{ padding: "80px 24px", backgroundColor: "#fafafa" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{
+          <div className="mobile-stack-2" style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "80px"
@@ -206,7 +206,7 @@ export default function PrenotaPage() {
                   />
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "24px" }}>
+                <div className="mobile-form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "24px" }}>
                   <div>
                     <label htmlFor="email" style={labelStyle}>Email *</label>
                     <input
@@ -233,7 +233,7 @@ export default function PrenotaPage() {
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "24px", marginBottom: "24px" }}>
+                <div className="mobile-form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "24px", marginBottom: "24px" }}>
                   <div>
                     <label htmlFor="data" style={labelStyle}>Data *</label>
                     <input
@@ -315,7 +315,7 @@ export default function PrenotaPage() {
             </div>
 
             {/* INFO */}
-            <div style={{ paddingLeft: "40px" }}>
+            <div className="mobile-info-sidebar" style={{ paddingLeft: "40px" }}>
               <h2 style={{
                 fontFamily: "Cormorant Garamond, serif",
                 fontSize: "clamp(28px, 4vw, 40px)",

@@ -39,7 +39,7 @@ export default function MenuPage() {
     <main>
       {/* HERO */}
       <div style={{ position: "relative" }}>
-      <section style={{ position: "sticky", top: 0, height: "80vh", width: "100%", zIndex: 0 }}>
+      <section className="mobile-hero-80" style={{ position: "sticky", top: 0, height: "80vh", width: "100%", zIndex: 0 }}>
         <Image
           src="/images/hero.png"
           alt="I piatti dello chef"
@@ -84,7 +84,7 @@ export default function MenuPage() {
       </section>
 
       {/* MENU */}
-      <section style={{ padding: "120px 24px", backgroundColor: "#fafafa", position: "relative", zIndex: 1 }}>
+      <section className="mobile-section" style={{ padding: "120px 24px", backgroundColor: "#fafafa", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
           <p style={{
             fontFamily: "Montserrat, sans-serif",
@@ -117,7 +117,7 @@ export default function MenuPage() {
             Il nostro viaggio: un cammino costante fatto di ricette, racconti, ingredienti, il giro per la nostra terra, seguendo stagioni e materie prime raccolte da mani sapienti che ci portano alla luce come sempre nuove. Il rispetto per ogni ingrediente ci spinge a valorizzarlo in ogni sua sfaccettatura. Il nostro menu fuori dal canoni raccontra storie e contaminazioni di un territorio fatto di mare e campagna.
           </p>
 
-          <div style={{
+          <div className="mobile-menu-cards" style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
             gap: "32px",
@@ -205,7 +205,7 @@ export default function MenuPage() {
       </div>
 
       {/* PARALLAX TRA MENU E GALLERIA */}
-      <section style={{
+      <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
         backgroundImage: "url(/images/mostra-tmpzg8eq5a3.png)",
@@ -222,7 +222,7 @@ export default function MenuPage() {
       </section>
 
       {/* MENU INFO */}
-      <section style={{ padding: "100px 24px", backgroundColor: "white" }}>
+      <section className="mobile-section" style={{ padding: "100px 24px", backgroundColor: "white" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{
             display: "grid",
@@ -335,7 +335,7 @@ export default function MenuPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "100px 24px", backgroundColor: "#1a1a1a", textAlign: "center" }}>
+      <section className="mobile-section-dark" style={{ padding: "100px 24px", backgroundColor: "#1a1a1a", textAlign: "center" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <h2 style={{
             fontFamily: "Cormorant Garamond, serif",
@@ -355,22 +355,18 @@ export default function MenuPage() {
           }}>
             Per conoscere le proposte del giorno, contattaci o vieni a trovarci. Saremo felici di raccontarti cosa ha ispirato lo chef oggi.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
+          <div className="mobile-cta-group" style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
             <Link href="/prenota" className="btn-primary" style={{ fontFamily: "Montserrat, sans-serif" }}>
               Prenota un Tavolo
             </Link>
             <a
               href="tel:0922774736"
+              className="btn-outline"
               style={{
                 fontFamily: "Montserrat, sans-serif",
-                padding: "14px 32px",
                 border: "1px solid white",
                 color: "white",
-                textDecoration: "none",
-                fontSize: "14px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                transition: "all 0.3s"
+                textDecoration: "none"
               }}
             >
               Chiama: 0922 774736
