@@ -46,7 +46,7 @@ export default function Navigation() {
   const linkBaseClass = "nav-link text-sm tracking-wider uppercase transition-colors hover:text-[#c9a55c]";
   const linkColorClass = "text-white";
 
-  const buttonClass = "md:hidden relative z-[70] p-2 text-white";
+  const buttonClass = "md:hidden relative z-[70] p-3 text-white cursor-pointer";
 
   const spanBaseClass = "w-full h-0.5 bg-current transform transition-all duration-300";
 
@@ -83,9 +83,11 @@ export default function Navigation() {
           </div>
 
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={buttonClass + " flex-shrink-0 -mr-2"}
+            type="button"
+            onClick={() => setIsMobileMenuOpen((v) => !v)}
+            className={buttonClass + " flex-shrink-0"}
             aria-label="Menu"
+            aria-expanded={isMobileMenuOpen ? "true" : "false"}
           >
             <div className="w-6 h-5 relative flex flex-col justify-between">
               <span className={spanBaseClass + (isMobileMenuOpen ? " rotate-45 translate-y-2" : "")} />
