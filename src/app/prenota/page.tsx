@@ -130,12 +130,12 @@ export default function PrenotaPage() {
       {/* HERO */}
       <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
         <Image
-          src="/images/hero-prenota.png"
+          src="/images/hero-prenota.jpg"
           alt="Prenota un tavolo"
           fill
           style={{ objectFit: "cover" }}
           priority
-        />
+         quality={95} />
         <div style={{
           position: "absolute",
           inset: 0,

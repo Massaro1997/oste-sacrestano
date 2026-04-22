@@ -13,12 +13,12 @@ export default function PeppePage() {
       {/* HERO */}
       <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
         <Image
-          src="/images/chef-peppe.png"
+          src="/images/chef-peppe.jpg"
           alt="Chef Peppe Bonsignore"
           fill
           style={{ objectFit: "cover", objectPosition: "top" }}
           priority
-        />
+         quality={95} />
         <div style={{
           position: "absolute",
           inset: 0,
@@ -144,7 +144,7 @@ export default function PeppePage() {
                   fill
                   style={{ objectFit: "cover", transition: "transform 0.5s" }}
                   className="hover:scale-105"
-                />
+                 quality={95} />
               </div>
             ))}
           </div>
@@ -212,10 +212,10 @@ export default function PeppePage() {
           </div>
           <div className="mobile-peppe-images mobile-split-image" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", padding: "60px", alignContent: "center" }}>
             <div style={{ position: "relative", aspectRatio: "3/4" }}>
-              <Image src="/images/007.jpg" alt="Piatto dello chef" fill style={{ objectFit: "cover" }} />
+              <Image src="/images/007.jpg" alt="Piatto dello chef" fill style={{ objectFit: "cover" }}  quality={95} />
             </div>
             <div style={{ position: "relative", aspectRatio: "3/4", marginTop: "40px" }}>
-              <Image src="/images/008.jpg" alt="Piatto dello chef" fill style={{ objectFit: "cover" }} />
+              <Image src="/images/008.jpg" alt="Piatto dello chef" fill style={{ objectFit: "cover" }}  quality={95} />
             </div>
           </div>
         </div>

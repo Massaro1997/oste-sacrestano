@@ -17,7 +17,7 @@ export default function Footer() {
               width={200}
               height={70}
               style={{ marginBottom: "24px" }}
-            />
+             quality={95} />
             <p style={{
               fontFamily: "Montserrat, sans-serif",
               fontSize: "14px",

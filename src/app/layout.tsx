@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "L'Oste e il Sacrestano | Osteria Contemporanea",
     description: "Osteria contemporanea nel cuore di Licata. Cucina siciliana moderna dello Chef Peppe Bonsignore.",
-    images: ["/images/hero.png"],
+    images: ["/images/hero.jpg"],
   },
 };
 

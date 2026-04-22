@@ -13,12 +13,12 @@ export default function LicataPage() {
       {/* HERO */}
       <section className="mobile-hero-80" style={{ position: "relative", height: "80vh", width: "100%" }}>
         <Image
-          src="/images/licata-hero.png"
+          src="/images/licata-hero.jpg"
           alt="Licata, Sicilia"
           fill
           style={{ objectFit: "cover" }}
           priority
-        />
+         quality={95} />
         <div style={{
           position: "absolute",
           inset: 0,
@@ -109,7 +109,7 @@ export default function LicataPage() {
           margin: "0 auto"
         }}>
           <div className="mobile-split-image" style={{ position: "relative", minHeight: "400px" }}>
-            <Image src="/images/porto-peschereccio.png" alt="Il porto peschereccio di Licata" fill style={{ objectFit: "cover" }} />
+            <Image src="/images/porto-peschereccio.jpg" alt="Il porto peschereccio di Licata" fill style={{ objectFit: "cover" }}  quality={95} />
           </div>
           <div className="mobile-split-text" style={{ display: "flex", alignItems: "center", padding: "60px" }}>
             <div style={{ maxWidth: "500px" }}>
@@ -188,7 +188,7 @@ export default function LicataPage() {
             </div>
           </div>
           <div className="mobile-split-image" style={{ position: "relative", minHeight: "400px", order: 2 }}>
-            <Image src="/images/vineyard-rows.png" alt="Vigneti e campagna siciliana" fill style={{ objectFit: "cover" }} />
+            <Image src="/images/vineyard-rows.jpg" alt="Vigneti e campagna siciliana" fill style={{ objectFit: "cover" }}  quality={95} />
           </div>
         </div>
       </section>
@@ -223,7 +223,7 @@ export default function LicataPage() {
           }}>
             <div style={{ backgroundColor: "white", overflow: "hidden" }}>
               <div style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}>
-                <Image src="/images/centro-storico.png" alt="Il Centro Storico di Licata" fill style={{ objectFit: "cover" }} />
+                <Image src="/images/centro-storico.jpg" alt="Il Centro Storico di Licata" fill style={{ objectFit: "cover" }}  quality={95} />
               </div>
               <div style={{ padding: "40px" }}>
                 <h4 style={{
@@ -247,7 +247,7 @@ export default function LicataPage() {
             </div>
             <div style={{ backgroundColor: "white", overflow: "hidden" }}>
               <div style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}>
-                <Image src="/images/castel-sant-angelo.png" alt="Castel Sant'Angelo" fill style={{ objectFit: "cover", filter: "brightness(1.25) contrast(1.05)" }} />
+                <Image src="/images/castel-sant-angelo.jpg" alt="Castel Sant'Angelo" fill style={{ objectFit: "cover", filter: "brightness(1.25) contrast(1.05)" }}  quality={95} />
               </div>
               <div style={{ padding: "40px" }}>
                 <h4 style={{
@@ -271,7 +271,7 @@ export default function LicataPage() {
             </div>
             <div style={{ backgroundColor: "white", overflow: "hidden" }}>
               <div style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}>
-                <Image src="/images/spiagge.png" alt="Le Spiagge di Licata" fill style={{ objectFit: "cover" }} />
+                <Image src="/images/spiagge.jpg" alt="Le Spiagge di Licata" fill style={{ objectFit: "cover" }}  quality={95} />
               </div>
               <div style={{ padding: "40px" }}>
                 <h4 style={{

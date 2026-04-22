@@ -10,29 +10,29 @@ export const metadata: Metadata = {
 
 export default function MenuPage() {
   const mostra = [
-    { src: "/images/mostra-new-1.png", alt: "Spaghetti verdi con bottarga" },
-    { src: "/images/mostra-new-2.png", alt: "Polpo glassato al vino" },
-    { src: "/images/mostra-new-3.png", alt: "Pesce con ragu di pomodoro" },
-    { src: "/images/mostra-new-4.png", alt: "Arancino su salsa verde" },
-    { src: "/images/mostra-nuova-2.png", alt: "Branzino con asparagi e carciofo" },
-    { src: "/images/mostra-nuova-1.png", alt: "Vegetale al forno con crema" },
-    { src: "/images/mostra-nuova-3.png", alt: "Vellutata con olio e erbe" },
-    { src: "/images/mostra-tmp43obdanf.png", alt: "Polpo e gambero" },
-    { src: "/images/mostra-tmp863gusaj.png", alt: "Polpo e gambero su piatto" },
-    { src: "/images/mostra-tmp8fpdym0l.png", alt: "Polpo con piselli" },
-    { src: "/images/mostra-tmpdh_1js3q.png", alt: "Polpo dorato" },
-    { src: "/images/mostra-tmpivo3owmv.png", alt: "Polpo su piatto nero" },
-    { src: "/images/mostra-tmp0z_9c5op.png", alt: "Spaghetti con pomodori" },
-    { src: "/images/mostra-tmp3o0ihd9j.png", alt: "Tonno con rosmarino" },
-    { src: "/images/mostra-tmprohptsa5.png", alt: "Tonno rosolato" },
-    { src: "/images/mostra-tmpctja64ge.png", alt: "Pesce con verdure" },
-    { src: "/images/mostra-tmpdgzzn5fp.png", alt: "Pesce al forno" },
-    { src: "/images/mostra-tmpf_plour4.png", alt: "Pesce con patate" },
-    { src: "/images/mostra-tmplcf48hh8.png", alt: "Baccala in brodo" },
-    { src: "/images/mostra-tmpib6wys_9.png", alt: "Frittura in brodo" },
-    { src: "/images/mostra-tmp6qgph5hp.png", alt: "Cannolo dall'alto" },
-    { src: "/images/mostra-tmp8va8f0ml.png", alt: "Cannolo con cacao" },
-    { src: "/images/mostra-tmpsym7fyu9.png", alt: "Cannolo con frutta" },
+    { src: "/images/mostra-new-1.jpg", alt: "Spaghetti verdi con bottarga" },
+    { src: "/images/mostra-new-2.jpg", alt: "Polpo glassato al vino" },
+    { src: "/images/mostra-new-3.jpg", alt: "Pesce con ragu di pomodoro" },
+    { src: "/images/mostra-new-4.jpg", alt: "Arancino su salsa verde" },
+    { src: "/images/mostra-nuova-2.jpg", alt: "Branzino con asparagi e carciofo" },
+    { src: "/images/mostra-nuova-1.jpg", alt: "Vegetale al forno con crema" },
+    { src: "/images/mostra-nuova-3.jpg", alt: "Vellutata con olio e erbe" },
+    { src: "/images/mostra-tmp43obdanf.jpg", alt: "Polpo e gambero" },
+    { src: "/images/mostra-tmp863gusaj.jpg", alt: "Polpo e gambero su piatto" },
+    { src: "/images/mostra-tmp8fpdym0l.jpg", alt: "Polpo con piselli" },
+    { src: "/images/mostra-tmpdh_1js3q.jpg", alt: "Polpo dorato" },
+    { src: "/images/mostra-tmpivo3owmv.jpg", alt: "Polpo su piatto nero" },
+    { src: "/images/mostra-tmp0z_9c5op.jpg", alt: "Spaghetti con pomodori" },
+    { src: "/images/mostra-tmp3o0ihd9j.jpg", alt: "Tonno con rosmarino" },
+    { src: "/images/mostra-tmprohptsa5.jpg", alt: "Tonno rosolato" },
+    { src: "/images/mostra-tmpctja64ge.jpg", alt: "Pesce con verdure" },
+    { src: "/images/mostra-tmpdgzzn5fp.jpg", alt: "Pesce al forno" },
+    { src: "/images/mostra-tmpf_plour4.jpg", alt: "Pesce con patate" },
+    { src: "/images/mostra-tmplcf48hh8.jpg", alt: "Baccala in brodo" },
+    { src: "/images/mostra-tmpib6wys_9.jpg", alt: "Frittura in brodo" },
+    { src: "/images/mostra-tmp6qgph5hp.jpg", alt: "Cannolo dall'alto" },
+    { src: "/images/mostra-tmp8va8f0ml.jpg", alt: "Cannolo con cacao" },
+    { src: "/images/mostra-tmpsym7fyu9.jpg", alt: "Cannolo con frutta" },
   ];
 
   return (
@@ -41,12 +41,12 @@ export default function MenuPage() {
       <div style={{ position: "relative" }}>
       <section className="mobile-hero-80" style={{ position: "sticky", top: 0, height: "80vh", width: "100%", zIndex: 0 }}>
         <Image
-          src="/images/hero.png"
+          src="/images/hero.jpg"
           alt="I piatti dello chef"
           fill
           style={{ objectFit: "cover" }}
           priority
-        />
+         quality={95} />
         <div style={{
           position: "absolute",
           inset: 0,
@@ -208,7 +208,7 @@ export default function MenuPage() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/mostra-tmpzg8eq5a3.png)",
+        backgroundImage: "url(/images/mostra-tmpzg8eq5a3.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"

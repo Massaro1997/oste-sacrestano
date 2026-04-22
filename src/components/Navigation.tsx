@@ -16,6 +16,17 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/peppe", label: "Peppe" },
@@ -36,14 +47,14 @@ export default function Navigation() {
   const linkColorClass = "text-white";
 
   const buttonClass = isMobileMenuOpen
-    ? "md:hidden relative z-10 p-2 text-gray-800"
-    : "md:hidden relative z-10 p-2 text-white";
+    ? "md:hidden relative z-[70] p-2 text-gray-800"
+    : "md:hidden relative z-[70] p-2 text-white";
 
   const spanBaseClass = "w-full h-0.5 bg-current transform transition-all duration-300";
 
   const mobileMenuClass = isMobileMenuOpen
-    ? "md:hidden fixed inset-0 bg-white z-40 transition-all duration-500 opacity-100 visible"
-    : "md:hidden fixed inset-0 bg-white z-40 transition-all duration-500 opacity-0 invisible pointer-events-none";
+    ? "md:hidden fixed inset-0 bg-white z-[60] transition-opacity duration-300 opacity-100 visible"
+    : "md:hidden fixed inset-0 bg-white z-[60] transition-opacity duration-300 opacity-0 invisible pointer-events-none";
 
   return (
     <nav className={navClass}>
@@ -57,7 +68,7 @@ export default function Navigation() {
               height={60}
               className={logoClass}
               priority
-            />
+             quality={95} />
           </Link>
 
           <div className="hidden md:flex items-center gap-10">

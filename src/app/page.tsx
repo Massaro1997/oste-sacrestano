@@ -8,12 +8,12 @@ export default function Home() {
       {/* HERO - Sticky sotto */}
       <section className="mobile-hero-100" style={{ position: "sticky", top: 0, height: "100vh", width: "100%", zIndex: 0 }}>
         <Image
-          src="/images/hero.png"
+          src="/images/hero.jpg"
           alt="Piatti gourmet"
           fill
           style={{ objectFit: "cover" }}
           priority
-        />
+         quality={95} />
         <div style={{
           position: "absolute",
           inset: 0,
@@ -115,7 +115,7 @@ export default function Home() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/parallax-piatti.png)",
+        backgroundImage: "url(/images/parallax-piatti.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"
@@ -131,11 +131,11 @@ export default function Home() {
           {/* Immagine Chef */}
           <div className="mobile-split-image" style={{ position: "relative", minHeight: "500px" }}>
             <Image
-              src="/images/chef-peppe.png"
+              src="/images/chef-peppe.jpg"
               alt="Chef Peppe Bonsignore"
               fill
               style={{ objectFit: "cover", objectPosition: "top" }}
-            />
+             quality={95} />
           </div>
 
           {/* Testo */}
@@ -198,7 +198,7 @@ export default function Home() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/parallax-prenotazioni.png)",
+        backgroundImage: "url(/images/parallax-prenotazioni.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"
@@ -235,11 +235,11 @@ export default function Home() {
           }}>
             {[
               "/images/035.jpeg",
-              "/images/home-galleria-peppe-chiara.png",
-              "/images/galleria-3-new.png",
-              "/images/galleria-3.png",
-              "/images/galleria-4.png",
-              "/images/galleria-6-new.png"
+              "/images/home-galleria-peppe-chiara.jpg",
+              "/images/galleria-3-new.jpg",
+              "/images/galleria-3.jpg",
+              "/images/galleria-4.jpg",
+              "/images/galleria-6-new.jpg"
             ].map((src, i) => (
               <div key={i} style={{ position: "relative", aspectRatio: "1/1", overflow: "hidden" }}>
                 <Image
@@ -248,7 +248,7 @@ export default function Home() {
                   fill
                   style={{ objectFit: "cover", transition: "transform 0.5s" }}
                   className="hover:scale-105"
-                />
+                 quality={95} />
               </div>
             ))}
           </div>
@@ -265,7 +265,7 @@ export default function Home() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/parallax-prenota.png)",
+        backgroundImage: "url(/images/parallax-prenota.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"
@@ -340,7 +340,7 @@ export default function Home() {
               alt="Licata"
               fill
               style={{ objectFit: "cover" }}
-            />
+             quality={95} />
           </div>
         </div>
       </section>
@@ -349,7 +349,7 @@ export default function Home() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/parallax-quote.png)",
+        backgroundImage: "url(/images/parallax-quote.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"
@@ -419,7 +419,7 @@ export default function Home() {
       <section className="mobile-parallax" style={{
         position: "relative",
         height: "500px",
-        backgroundImage: "url(/images/parallax-footer.png)",
+        backgroundImage: "url(/images/parallax-footer.jpg)",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover"

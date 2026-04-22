@@ -57,7 +57,7 @@ export default function MostraGallery({ items }: { items: Dish[] }) {
               fill
               style={{ objectFit: "cover", padding: "8px" }}
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 220px"
-            />
+             quality={95} />
           </div>
         ))}
       </div>
@@ -164,7 +164,7 @@ export default function MostraGallery({ items }: { items: Dish[] }) {
                 objectFit: "contain",
               }}
               sizes="90vw"
-            />
+             quality={95} />
           </div>
         </div>
       )}
