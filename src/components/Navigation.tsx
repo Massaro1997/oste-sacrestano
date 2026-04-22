@@ -25,8 +25,10 @@ export default function Navigation() {
     const onScroll = () => {
       const y = window.scrollY;
       setIsScrolled(y > 50);
-      // On home: hide nav logo until hero logo has morphed into the navbar area.
-      if (isHome) {
+      // Hide nav logo only on home DESKTOP while the hero logo morphs up.
+      // Mobile hero does not morph; keep nav logo always visible.
+      const isDesktop = window.innerWidth >= 768;
+      if (isHome && isDesktop) {
         const vh = window.innerHeight || 900;
         const threshold = vh * 0.55;
         setHeroLogoHidden(y < threshold);
@@ -36,7 +38,11 @@ export default function Navigation() {
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, [isHome]);
 
   useEffect(() => {

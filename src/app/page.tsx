@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeroHome from "@/components/HeroHome";
+import HeroHomeMobile from "@/components/HeroHomeMobile";
 
 export default function Home() {
   return (
     <main>
       <div style={{ position: "relative" }}>
+      <HeroHomeMobile />
       <HeroHome />
 
       {/* BENVENUTI - scorre sopra hero */}

@@ -80,7 +80,7 @@ export default function HeroHome() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden hidden md:block"
       style={{ height: "100vh" }}
     >
       {/* Carousel background */}
