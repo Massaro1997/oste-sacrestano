@@ -60,7 +60,7 @@ export default function HeroHome() {
 
   // Breakpoint-aware logo sizes (must match the Tailwind classes below
   // and Navigation.tsx).
-  const heroLogoPx = vw >= 1024 ? 224 : vw >= 768 ? 160 : 96; // h-56 / h-40 / h-24
+  const heroLogoPx = vw >= 1024 ? 224 : vw >= 768 ? 160 : 176; // h-56 / h-40 / h-44 mobile
   const navLogoPx = vw >= 1024 ? 64 : vw >= 768 ? 56 : 48;    // h-16 / h-14 / h-12
   const navCenterY = 40; // nav is 80px tall, center at 40px from top
   const scrollRange = vh * 0.6;
@@ -155,7 +155,7 @@ export default function HeroHome() {
         <img
           src="/images/LOGO ULTIMO NUOVO.png"
           alt="L'Oste e il Sacrestano"
-          className="h-24 md:h-40 lg:h-56 w-auto"
+          className="h-44 md:h-40 lg:h-56 w-auto"
           style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.5))" }}
         />
       </div>
